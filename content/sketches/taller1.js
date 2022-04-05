@@ -1,27 +1,16 @@
-# Taller 1
 
-## Introduccion
-
-## Contexto
-
-## Resultados
-
- {{< details title="p5-iframe markdown" open=false >}}
-
-```js
-
-  let kernel = [[-1, -1, -1 ], [ -1,  9, -1 ], [-1, -1, -1 ]]; 
+let kernel = [[-1, -1, -1 ], [ -1,  9, -1 ], [-1, -1, -1 ]]; 
 
 
 function preload() {
 
-  img = loadImage("/showcase/sketches/arboles.jpg"); 
+  img = loadImage("/showcase/sketches/ojos.jpg"); 
 }
 
 
 function setup() {
 
-  createCanvas(710, 400);
+  createCanvas(293, 172);
   noLoop();
 }
 
@@ -55,16 +44,5 @@ function draw() {
   }
   
   edgeImg.updatePixels();
-  image(edgeImg, img.width, 0);
+  image(edgeImg, 0, 0);
 }
-
-  
-```
-{{< /details >}}
-
-{{< p5-iframe sketch="/showcase/sketches/taller1.js" width="350" height="200" >}}
-
-
-
-
-## Conclusiones y Trabajo Futuro
