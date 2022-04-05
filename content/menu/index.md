@@ -14,4 +14,5 @@ headless: true
 - [Taller 1]({{< relref "/docs/shortcodes/Taller1" >}})
 - [Alex]({{< relref "/docs/shortcodes/Alex" >}})
 - [Kevin]({{< relref "/docs/shortcodes/Kevin" >}})
+- [Julian]({{< relref "/docs/shortcodes/Julian" >}})
 <br />
