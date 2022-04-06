@@ -24,23 +24,23 @@ function setup() {
    edgeImg = createImage(img.width, img.height);
    edgeImg.loadPixels();
   
-ASlider = createSlider(-5, 5, 1);
+ASlider = createInput('');
 ASlider.position(180, 300);
-BSlider = createSlider(-5, 5, 1);
+BSlider = createInput('');
 BSlider.position(180, 320);
-CSlider = createSlider(-5, 5, 1);
+CSlider = createInput('');
 CSlider.position(180, 340);
-DSlider = createSlider(-5, 5, 1);
+DSlider = createInput('');
 DSlider.position(180, 360);
-ESlider = createSlider(-5, 5,1);
+ESlider = createInput('');
 ESlider.position(180, 380);
-FSlider = createSlider(-5, 5, 1);
+FSlider = createInput('');
 FSlider.position(180, 400);
-GSlider = createSlider(-5, 5, 1);
+GSlider = createInput('');
 GSlider.position(180, 420);
-HSlider = createSlider(-5, 5, 1);
+HSlider = createInput('');
 HSlider.position(180, 440);
-ISlider = createSlider(-5, 5, 1);
+ISlider = createInput('');
 ISlider.position(180, 460);
 
   
