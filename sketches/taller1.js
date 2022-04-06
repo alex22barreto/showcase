@@ -43,7 +43,7 @@ HSlider.position(180, 440);
 ISlider = createSlider(-255, 255, 1);
 ISlider.position(180, 460);
 
-  text("Apply current slider value: ",380,310);
+  
   button = createButton('Apply Slider');
   button.position(540, 300);
   button.mousePressed(appslider);
@@ -51,17 +51,18 @@ ISlider.position(180, 460);
   button = createButton('Blur');
   button.position(540, 340);
   button.mousePressed(blur);
-  text("Apply default values: ",380,390);
   button = createButton('Identity');
   button.position(540, 380);
   button.mousePressed(identity);
-  text("Apply Outline: ",380,410);
   button = createButton('Outline');
   button.position(540, 410);
   button.mousePressed(outline);	
   button = createButton('Bottom Sobel');
-  button.position(540, 430);
+  button.position(540, 440);
   button.mousePressed(botsobel);
+  button = createButton('Emboss');
+  button.position(540, 470);
+  button.mousePressed(emboss);	
   noLoop();
 }
 function outline() {
@@ -137,6 +138,21 @@ function blur() {
     kernel = [[A, B, C ], [ D,  E, -F ], [G, H, I ]]; 
     redraw();
   }
+   
+ function emboss(){
+    clear();
+    A=113;
+    B=122;
+    C=45;
+    D=-72;
+    E=1;
+    F= -77;
+    G=-77;
+    H=-90;
+    I=-90;
+    kernel = [[A, B, C ], [ D,  E, -F ], [G, H, I ]]; 
+    redraw();
+  }
 
 
 function draw() {
@@ -149,7 +165,12 @@ function draw() {
     text("Valor Slider G: "+GSlider.value(),20,420);
     text("Valor Slider H: "+HSlider.value(),20,440);
     text("Valor Slider I: "+ISlider.value(),20,460);
-    
+    text("Apply current slider value: ",380,310);
+    text("Apply default values: ",380,390);
+    text("Apply Outline: ",380,410);
+    text("Apply Bottom Sobel: ",380,440);
+    text("Apply Emboss: ",380,460);	
+	
    for (let x = 1; x < img.width - 1; x++) {
     for (let y = 1; y < img.height - 1; y++) {
       let sum = 0; 
