@@ -18,42 +18,41 @@ function preload() {
 
 function setup() {
 
-  createCanvas(600, 600);
-  image(img, 140, 0);
+  createCanvas(550, 550);
+  image(img, 240, 0);
    edgeImg = createImage(img.width, img.height);
    edgeImg.loadPixels();
   
 ASlider = createSlider(-255, 255, 1);
-ASlider.position(20, 230);
-
+ASlider.position(180, 300);
 BSlider = createSlider(-255, 255, 1);
-BSlider.position(20, 250);
+BSlider.position(180, 320);
 CSlider = createSlider(-255, 255, 1);
-CSlider.position(20, 270);
+CSlider.position(180, 340);
 DSlider = createSlider(-255, 255, 1);
-DSlider.position(20, 290);
+DSlider.position(180, 360);
 ESlider = createSlider(-255, 255,1);
-ESlider.position(20, 310);
+ESlider.position(180, 380);
 FSlider = createSlider(-255, 255, 1);
-FSlider.position(20, 330);
+FSlider.position(180, 400);
 GSlider = createSlider(-255, 255, 1);
-GSlider.position(20, 350);
+GSlider.position(180, 420);
 HSlider = createSlider(-255, 255, 1);
-HSlider.position(20, 370);
+HSlider.position(180, 440);
 ISlider = createSlider(-255, 255, 1);
-ISlider.position(20, 390);
+ISlider.position(180, 460);
 
-  
+  text("Aplly current slider value: ",380,310);
   button = createButton('Apply Slider');
-  button.position(200, 230);
+  button.position(540, 300);
   button.mousePressed(appslider);
-
+  text("Aplly blur effect: ",380,350);
   button = createButton('Blur');
-  button.position(200, 250);
+  button.position(540, 340);
   button.mousePressed(blur);
-  
+  text("Aplly default values: ",380,390);
   button = createButton('Identity');
-  button.position(200, 270);
+  button.position(540, 380);
   button.mousePressed(identity);
 
   noLoop();
@@ -121,15 +120,15 @@ function blur() {
 
 
 function draw() {
-    text("Valor Slider A: "+ASlider.value(),20,10);
-    text("Valor Slider B: "+BSlider.value(),20,20);
-    text("Valor Slider C: "+CSlider.value(),20,30);
-    text("Valor Slider D: "+DSlider.value(),20,40);
-    text("Valor Slider E: "+ESlider.value(),20,50);
-    text("Valor Slider F: "+FSlider.value(),20,60);
-    text("Valor Slider G: "+GSlider.value(),20,70);
-    text("Valor Slider H: "+HSlider.value(),20,80);
-    text("Valor Slider I: "+ISlider.value(),20,90);
+    text("Valor Slider A: "+ASlider.value(),20,300);
+    text("Valor Slider B: "+BSlider.value(),20,320);
+    text("Valor Slider C: "+CSlider.value(),20,340);
+    text("Valor Slider D: "+DSlider.value(),20,360);
+    text("Valor Slider E: "+ESlider.value(),20,380);
+    text("Valor Slider F: "+FSlider.value(),20,400);
+    text("Valor Slider G: "+GSlider.value(),20,420);
+    text("Valor Slider H: "+HSlider.value(),20,440);
+    text("Valor Slider I: "+ISlider.value(),20,460);
     
    for (let x = 1; x < img.width - 1; x++) {
     for (let y = 1; y < img.height - 1; y++) {
@@ -150,5 +149,5 @@ function draw() {
   }
   
   edgeImg.updatePixels();
-  image(edgeImg, 140, 0);
+  image(edgeImg, 240, 0);
 }
