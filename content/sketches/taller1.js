@@ -56,7 +56,7 @@ ISlider.position(180, 460);
   button = createButton('Outline');
   button.position(540, 390);
   button.mousePressed(outline);	
-  button = createButton('Left Sobel');
+  button = createButton('Right Sobel');
   button.position(540, 420);
   button.mousePressed(botsobel);
   button = createButton('Emboss');
@@ -66,15 +66,16 @@ ISlider.position(180, 460);
 }
 function outline() {
     clear();
-    A=-32;
-    B=50;
-    C=45;
-    D=-81;
-    E=63;
-    F=68;
-    G=-68;
-    H=59;
-    I=59;
+    
+    A=-5;
+    B=4;
+    C=0;
+    D=0;
+    E=2;
+    F=0;
+    G=0;
+    H=-1;
+    I=0;
     kernel = [[A, B, C ], [ D,  E, -F ], [G, H, I ]]; 
     redraw();
   }
@@ -123,17 +124,16 @@ function blur() {
     redraw();
   }
 
-  function botsobel(){
+  function ritsobel(){
     clear();
-    A=-77;
-    B=-81;
-    C=-81;
-    D=-90;
-    E=-86;
-    F= -194;
-    G=-50;
-    H=50;
-    I=50;
+    B=50;
+    C=45;
+    D=-81;
+    E=63;
+    F=68;
+    G=-68;
+    H=59;
+    I=59;
     kernel = [[A, B, C ], [ D,  E, -F ], [G, H, I ]]; 
     redraw();
   }
@@ -168,7 +168,7 @@ function draw() {
     text("Apply blur effect: ",380,330);
     text("Apply default values: ",380,360);
     text("Apply Outline: ",380,390);
-    text("Apply Left Sobel: ",380,420);
+    text("Apply Right Sobel: ",380,420);
     text("Apply Emboss: ",380,450);	
 	
    for (let x = 1; x < img.width - 1; x++) {
