@@ -15,7 +15,7 @@
 
 function preload() {
 
-  img = loadImage("/showcase/sketches/arboles.jpg"); 
+  img = loadImage("/content/sketches/arboles.jpg"); 
 }
 
 
@@ -62,7 +62,7 @@ function draw() {
 ```
 {{< /details >}}
 
-{{< p5-iframe sketch="/showcase/sketches/taller1.js" width="800" height="600" >}}
+{{< p5-iframe sketch="/showcase/sketches/taller1.js" width="400" height="400" >}}
 
 
 
