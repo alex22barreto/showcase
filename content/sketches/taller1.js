@@ -24,44 +24,43 @@ function setup() {
    edgeImg = createImage(img.width, img.height);
    edgeImg.loadPixels();
   
-ASlider = createSlider(-255, 255, 1);
+ASlider = createSlider(-25, 25, 1);
 ASlider.position(180, 300);
-BSlider = createSlider(-255, 255, 1);
+BSlider = createSlider(-25, 25, 1);
 BSlider.position(180, 320);
-CSlider = createSlider(-255, 255, 1);
+CSlider = createSlider(-25, 25, 1);
 CSlider.position(180, 340);
-DSlider = createSlider(-255, 255, 1);
+DSlider = createSlider(-25, 25, 1);
 DSlider.position(180, 360);
-ESlider = createSlider(-255, 255,1);
+ESlider = createSlider(-25, 25,1);
 ESlider.position(180, 380);
-FSlider = createSlider(-255, 255, 1);
+FSlider = createSlider(-25, 25, 1);
 FSlider.position(180, 400);
-GSlider = createSlider(-255, 255, 1);
+GSlider = createSlider(-25, 25, 1);
 GSlider.position(180, 420);
-HSlider = createSlider(-255, 255, 1);
+HSlider = createSlider(-25, 25, 1);
 HSlider.position(180, 440);
-ISlider = createSlider(-255, 255, 1);
+ISlider = createSlider(-25, 25, 1);
 ISlider.position(180, 460);
 
   
   button = createButton('Apply Slider');
   button.position(540, 300);
   button.mousePressed(appslider);
-  text("Apply blur effect: ",380,350);
   button = createButton('Blur');
-  button.position(540, 340);
+  button.position(540, 330);
   button.mousePressed(blur);
   button = createButton('Identity');
-  button.position(540, 380);
+  button.position(540, 360);
   button.mousePressed(identity);
   button = createButton('Outline');
-  button.position(540, 410);
+  button.position(540, 390);
   button.mousePressed(outline);	
-  button = createButton('Bottom Sobel');
-  button.position(540, 440);
+  button = createButton('Left Sobel');
+  button.position(540, 420);
   button.mousePressed(botsobel);
   button = createButton('Emboss');
-  button.position(540, 470);
+  button.position(540, 450);
   button.mousePressed(emboss);	
   noLoop();
 }
@@ -165,11 +164,12 @@ function draw() {
     text("Valor Slider G: "+GSlider.value(),20,420);
     text("Valor Slider H: "+HSlider.value(),20,440);
     text("Valor Slider I: "+ISlider.value(),20,460);
-    text("Apply current slider value: ",380,310);
-    text("Apply default values: ",380,390);
-    text("Apply Outline: ",380,410);
-    text("Apply Bottom Sobel: ",380,440);
-    text("Apply Emboss: ",380,460);	
+    text("Apply current slider value: ",380,300);
+    text("Apply blur effect: ",380,330);
+    text("Apply default values: ",380,360);
+    text("Apply Outline: ",380,390);
+    text("Apply Left Sobel: ",380,420);
+    text("Apply Emboss: ",380,450);	
 	
    for (let x = 1; x < img.width - 1; x++) {
     for (let y = 1; y < img.height - 1; y++) {
