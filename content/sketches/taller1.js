@@ -140,7 +140,10 @@ function draw() {
           let xpos = x + kx;
           let ypos = y + ky;
           let pos = (y + ky)*img.width + (x + kx);
-          let val = red(img.get(xpos, ypos));
+          let valr = red(img.get(xpos, ypos));
+		  let valg = green(img.get(xpos, ypos));
+		  let valb = blue(img.get(xpos, ypos));
+		  let val = (valr*0.299) + (valg*0.587) + (valb*0.114);
           sum += kernel[ky+1][kx+1] * val;
         }
       }

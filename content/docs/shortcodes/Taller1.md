@@ -19,7 +19,7 @@
 
   For example, this is the kernel for the blue effect that you can apply and test below: 
   {{< expand "Blur Kernel" "..." >}}
-  ![Blur Kernel](..../sketches/blurkernel.jpg))
+  ![Blur Kernel](/sketches/blurkernel.jpg))
   {{< /expand >}}
 
 ## Results
@@ -94,18 +94,14 @@ And here is the demo where you can do all the tests
 
 CONCLULIONS:
 
-- Literally dont know xd. 
-- or.....
-- Nah
+- Image processing done by software and sequentially takes too much processing time.
+- The application of filters is used to improve the quality of the image, by eliminating noise data, highlighting some necessary aspect of the image or only leaving some characteristics of the image and eliminating the rest of the data.
 
 FUTURE WORK:
 
-- Make it prettier :D 
-- Faster
-- Bigger
-- Better
-- Faster 
-- Stronger
+- As future work, it is hoped to be able to apply a greater number of filters to the same image, individually and combined, since the combination of different kernels can give better results. Depending on the application, you may want to apply a filter that removes blemishes or smoothes an image, and then apply another that detects edges.
+
+- Another aspect to focus future work on is performance, where changes can be seen immediately with any change in kernel values, so you can have a better interpretation of the image as desired.
 
 REFERENCES:
 
