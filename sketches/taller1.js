@@ -58,7 +58,7 @@ ISlider.position(180, 460);
   button.mousePressed(outline);	
   button = createButton('Right Sobel');
   button.position(540, 420);
-  button.mousePressed(botsobel);
+  button.mousePressed(ritsobel);
   button = createButton('Emboss');
   button.position(540, 450);
   button.mousePressed(emboss);	
