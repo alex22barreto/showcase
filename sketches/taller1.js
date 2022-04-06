@@ -11,8 +11,9 @@ I=0;
 
 kernel = [[A, B, C ], [ D,  E, -F ], [G, H, I ]]; 
 
+
 function preload() {
-   img = loadImage("/showcase/sketches/skull.jpg"); 
+   img = loadImage("/showcase/sketches/tomografia2.jpg"); 
    }
 
 
