@@ -62,8 +62,25 @@ ISlider.position(180, 460);
   button = createButton('Emboss');
   button.position(540, 450);
   button.mousePressed(emboss);	
+  button = createButton('Bottom Sobel');
+  button.position(540, 480);
+  button.mousePressed(botsob);		
   noLoop();
 }
+function botsob() {
+    clear();
+    A=-1;
+    B=-2;
+    C=-1;
+    D=0;
+    E=0;
+    F=0;
+    G=1;
+    H=2;
+    I=1;
+    kernel = [[A, B, C ], [ D,  E, -F ], [G, H, I ]]; 
+    redraw();
+  }
 function outline() {
     clear();
     A=-5;
@@ -140,15 +157,15 @@ function blur() {
    
  function emboss(){
     clear();
-    A=113;
-    B=122;
-    C=45;
-    D=-72;
-    E=1;
-    F= -77;
-    G=-77;
-    H=-90;
-    I=-90;
+    A=-1.8;
+    B=-1;
+    C=0;
+    D=-1;
+    E=1.5;
+    F= 1.5;
+    G=0.1;
+    H=1.5;
+    I=2.5;
     kernel = [[A, B, C ], [ D,  E, -F ], [G, H, I ]]; 
     redraw();
   }
