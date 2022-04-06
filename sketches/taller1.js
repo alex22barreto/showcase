@@ -55,10 +55,27 @@ ISlider.position(180, 460);
   button = createButton('Identity');
   button.position(540, 380);
   button.mousePressed(identity);
+  text("Aplly Outline: ",380,410);
+  button = createButton('Outline');
+  button.position(540, 400);
+  button.mousePressed(outline);	
 
   noLoop();
 }
-
+function outline() {
+    clear();
+    A=-32;
+    B=50;
+    C=45;
+    D=-81;
+    E=63;
+    F=68;
+    G=-68;
+    H=59;
+    I=59;
+    kernel = [[A, B, C ], [ D,  E, -F ], [G, H, I ]]; 
+    redraw();
+  }
 function identity() {
     clear();
     A=0;
