@@ -66,7 +66,6 @@ ISlider.position(180, 460);
 }
 function outline() {
     clear();
-    
     A=-5;
     B=4;
     C=0;
@@ -126,6 +125,7 @@ function blur() {
 
   function ritsobel(){
     clear();
+    A=-32;  
     B=50;
     C=45;
     D=-81;
