@@ -57,9 +57,11 @@ ISlider.position(180, 460);
   button.mousePressed(identity);
   text("Apply Outline: ",380,410);
   button = createButton('Outline');
-  button.position(540, 400);
+  button.position(540, 410);
   button.mousePressed(outline);	
-
+  button = createButton('Bottom Sobel');
+  button.position(540, 430);
+  button.mousePressed(botsobel);
   noLoop();
 }
 function outline() {
@@ -123,15 +125,15 @@ function blur() {
 
   function botsobel(){
     clear();
-    A=-1;
-    B=-0;
-    C=-1;
-    D=-2;
-    E= 0;
-    F= 2;
-    G=-1;
-    H=0;
-    I=0;
+    A=-77;
+    B=-81;
+    C=-81;
+    D=-90;
+    E=-86;
+    F= -194;
+    G=-50;
+    H=50;
+    I=50;
     kernel = [[A, B, C ], [ D,  E, -F ], [G, H, I ]]; 
     redraw();
   }
