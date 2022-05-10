@@ -74,9 +74,9 @@ function draw() {
     // from there, it's up to you to do fun
     // stuff with those points!
     push();// begin motion
-    translate(leftEye.x-380,leftEye.y-270,5);
+    translate(leftEye.x-450,leftEye.y-300,leftEye.z+3);
     fill(0,220,210);
-    box(50,50);
+    box(20,20);
     pop();//end motion
     
   }
