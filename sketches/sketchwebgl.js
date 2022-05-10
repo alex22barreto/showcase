@@ -1,5 +1,5 @@
 function setup() {
-    createCanvas(300, 300,WEBGL);
+    createCanvas(600, 600,WEBGL);
    
    
     xSensitivitySlider = createSlider(0, 5, 1, 0.1);
