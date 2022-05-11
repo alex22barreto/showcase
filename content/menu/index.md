@@ -8,4 +8,5 @@ headless: true
 - [Kevin]({{< relref "/docs/shortcodes/Kevin" >}})
 - [Julian]({{< relref "/docs/shortcodes/Julian" >}})
 - [Taller 2]({{< relref "/docs/shortcodes/Taller2" >}})
+- [Rasterizacion]({{< relref "/docs/shortcodes/Rasterization" >}})
 <br />
