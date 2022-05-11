@@ -1,91 +1,60 @@
-
-
-// Brush controls
-let color;
-let depth;
-let brush;
-
-let easycam;
-let state;
-
-let escorzo;
-let points;
-let record;
-
 function setup() {
-  createCanvas(600, 450, WEBGL);
-  // easycam stuff
-  let state = {
-    distance: 250,           // scalar
-    center: [0, 0, 0],       // vector
-    rotation: [0, 0, 0, 1],  // quaternion
-  };
-  easycam = createEasyCam();
-  easycam.state_reset = state;   // state to use on reset (double-click/tap)
-  easycam.setState(state, 2000); // now animate to that state
-  escorzo = true;
-  perspective();
-
-  // brush stuff
-  points = [];
-  depth = createSlider(0, 1, 0.05, 0.05);
-  depth.position(10, 10);
-  depth.style('width', '580px');
-  color = createColorPicker('#ed225d');
-  color.position(width - 70, 40);
-  // select initial brush
-  brush = sphereBrush;
-}
-
-function draw() {
-  update();
-  background(120);
-  push();
-  strokeWeight(0.8);
-  stroke('magenta');
-  grid({ dotted: false });
-  pop();
-  axes();
-  for (const point of points) {
+    createCanvas(600, 600,WEBGL);
+   
+   
+    xSensitivitySlider = createSlider(0, 5, 1, 0.1);
+    xSensitivitySlider.position(20, 50);
+   
+    ySensitivitySlider = createSlider(0, 5, 1, 0.1);
+    ySensitivitySlider.position(20, 80);
+   
+    zSensitivitySlider = createSlider(0, 5, 1, 0.1);
+    zSensitivitySlider.position(20, 110);
+  }
+  
+  function draw() {
+   
+  background("green");
+  text("Move the sliders to modify the x, y and"
+           + " z orbit sensitivity", -285, -125);
+    strokeWeight(3);
+   
+    xSensitivity = xSensitivitySlider.value();
+    ySensitivity = ySensitivitySlider.value();
+    zSensitivity = zSensitivitySlider.value();
+   
+    text("x Sensitivity is: " + xSensitivity, -285, 100);
+    text("y Sensitivity is: " + ySensitivity, -285, 120);
+    text("z Sensitivity is: " + zSensitivity, -285, 140);
+   
+    // Enable default lights
+   
+   
+    orbitControl(xSensitivity, ySensitivity, zSensitivity);
+   
+   
+   
     push();
-    translate(point.worldPosition);
-    brush(point);
+      beginShape();
+  //Triangulo 2d
+  
+  //Cara 1  
+  vertex(0, 10,0);
+    //Punto derecha
+    vertex(100, 10,0);
+    //Vertex Central
+    vertex(50, -100,-25);  
+    //Union
+    vertex(0, 10,0)
+   
+  //Cara 2
+  vertex(50,10,-100)  
+  vertex(50, -100,-25);  
+  
+  //Cara 3
+    vertex(50,10,-100)
+    vertex(100, 10,0);  
+   
+  endShape();
     pop();
   }
-}
-
-function update() {
-  let dx = abs(mouseX - pmouseX);
-  let dy = abs(mouseY - pmouseY);
-  speed = constrain((dx + dy) / (2 * (width - height)), 0, 1);
-  if (record) {
-    points.push({
-      worldPosition: treeLocation([mouseX, mouseY, depth.value()], { from: 'SCREEN', to: 'WORLD' }),
-      color: color.color(),
-      speed: speed
-    });
-  }
-}
-
-function sphereBrush(point) {
-  push();
-  noStroke();
-  // TODO parameterize sphere radius and / or
-  // alpha channel according to gesture speed
-  fill(point.color);
-  sphere(1);
-  pop();
-}
-
-function keyPressed() {
-  if (key === 'r') {
-    record = !record;
-  }
-  if (key === 'p') {
-    escorzo = !escorzo;
-    escorzo ? perspective() : ortho();
-  }
-  if (key == 'c') {
-    points = [];
-  }
-}

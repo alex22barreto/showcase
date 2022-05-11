@@ -1,11 +1,31 @@
-# Taller 1
+# Taller 2
+
+## Introduccion
+
+## Contexto
+
 ## Resultados
+# 
+<head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- import TensorFlow and the BlazeFace model -->
+<script src="tfjs"></script>
+<script src="blazeface"></script>
 
- {{< details title="p5-iframe markdown" open=false >}}
+<script src="p5.js"></script>
+<script src="sketch.js"></script>
+<style>
+            #sketch-holder {
+                padding:    0;
+                margin:     0;
+                text-align: center;
+            }
+        </style>
+</head>
 
-```js
-
-```
-{{< /details >}}
-
-{{< p5-iframe sketch="/showcase/sketches/sketchwebgl.js" lib1="https://cdn.jsdelivr.net/gh/freshfork/p5.EasyCam@1.2.1/p5.easycam.min.js" lib2="https://cdn.jsdelivr.net/gh/VisualComputing/p5.treegl/p5.treegl.js" width="525" lib3="p5.js" lib4="p5.sound.js"  width="735" height="550" >}}
+<body>
+ <div id="sketch-holder">
+      <!-- Our sketch will go here! -->
+    </div>
+</body>
