@@ -1,122 +1,89 @@
-/*
-Eye Tracking Tomado de:
-Jeff Thompson | 2021 | jeffreythompson.org
+//Finger Finder
+//Mano izq primero luego der
+paint = []
 
-Referencias
-+ https://github.com/tensorflow/tfjs-models/tree/master/blazeface
-+ https://arxiv.org/abs/1907.05047
-
-
-
-*/
-
-let video;  // webcam input
-let model;  // BlazeFace machine-learning model
-let face;   // detected face
-
-// print details when a face is
-// first found
-let firstFace = true;
+// This is like pmouseX and pmouseY...but for every finger [pointer, middle, ring, pinky]
+let prevPointer = [
+  // Left hand
+  [{x: 0, y: 0}, {x: 0, y: 0}, {x: 0, y: 0}, {x: 0, y: 0}],
+  // Right hand
+  [{x: 0, y: 0}, {x: 0, y: 0}, {x: 0, y: 0}, {x: 0, y: 0}]
+]
 
 
-function setup() {
-  var canvas=createCanvas(400, 380,WEBGL);
-  canvas.parent('sketch-holder');
-  video = createCapture(VIDEO);
-  video.size(300,300)
-  video.hide();
+function setup(){
+  sketch=createCanvas(400, 380,WEBGL);
+  
+  colorMap = [
+    // Left fingertips
+    [color(0, 0, 0), color(255, 0, 255), color(0, 0, 255), color(255, 255, 255)],
+    // Right fingertips
+    [color(255, 0, 0), color(0, 255, 0), color(0, 0, 255), color(255, 255, 0)]
+  ]
+  handsfree = new Handsfree({
+    showDebug: true, // Comment this out to hide the default webcam feed with landmarks
+    hands: true
+  })
+  handsfree.enablePlugins('browser')
+  handsfree.plugin.pinchScroll.disable()
+  buttonStart = createButton('Start Webcam')
+  buttonStart.class('handsfree-show-when-stopped')
+  buttonStart.class('handsfree-hide-when-loading')
+  buttonStart.mousePressed(() => handsfree.start())
 
-  // load the BlazeFace model
-  loadFaceModel();
+  // Create a "loading..." button
+  buttonLoading = createButton('...loading...')
+  buttonLoading.class('handsfree-show-when-loading')
+
+  // Create a stop button
+  buttonStop = createButton('Stop Webcam')
+  buttonStop.class('handsfree-show-when-started')
+  buttonStop.mousePressed(() => handsfree.stop())
 }
 
-
-// TensorFlow requires the loading of the
-// model to be done in an asynchronous function
-// this means it will load in the background
-// and be available to us when it's done
-async function loadFaceModel() {
-  model = await blazeface.load();
+function draw(){
+  background(0)
+  drawHands()
+  
+ 
 }
 
-
-function draw() {
-  scale(-1, 1);
-  background(200);
-  // if the video is active and the model has
-  // been loaded, get the face from this frame
-  if (video.loadedmetadata && model !== undefined) {
-    getFace();
-  }
-
-  // if we have face data, display it
-  if (face !== undefined) {
-    image(video, -200,-170, width,height);
-
-    // if this is the first face we've
-    // found, print the info
-    if (firstFace) {
-      console.log(face);
-      firstFace = false;
-    }
-
-    // the model returns us a variety of info
-    // (see the output in the console) but the
-    // most useful will probably be landmarks,
-    // which correspond to facial features
-    let leftEye =  face.landmarks[1];
-    // the points are given based on the dimensions
-    // of the video, which may be different than
-    // your canvas – we can convert them using map()!
-    leftEye =  scalePoint(leftEye);
-   
-
-    // from there, it's up to you to do fun
-    // stuff with those points!
-    push();// begin motion
-    translate(leftEye.x-450,leftEye.y-300,leftEye.z+3);
-    fill(0,220,210);
-    box(20,20);
-    pop();//end motion
+function drawHands () {
+  const hands = handsfree.data?.hands
+  
+  // Bail if we don't have anything to draw
+  if (!hands?.landmarks) return
+  
+  // Draw keypoints
+  hands.landmarks.forEach((hand, handIndex) => {
+    hand.forEach((landmark, landmarkIndex) => {
+      // Set color
+      // @see https://handsfree.js.org/ref/model/hands.html#data
+      
+      // Set stroke
+      if (handIndex === 0 && landmarkIndex === 8) {
+        stroke(color(255, 255, 255))
+        strokeWeight(5)
+        circleSize = 40
+      } else {
+        stroke(color(0, 0, 0))
+        strokeWeight(0)
+        circleSize = 0
+      }
+     
+      
+     
+      circle(
+        // Flip horizontally
+        sketch.width - landmark.x * sketch.width,
+        landmark.y * sketch.height,
+        circleSize)
+      print('Equis: '+landmark.x);
+      print('Ye: '+landmark.y);
+      box(20)
+      fill(0,200,0)
+      translate(landmark.x-1,landmark.y-1)
+    })
     
-  }
+  })
 }
-
-
-// a little utility function that converts positions
-// in the video to the canvas' dimensions
-function scalePoint(pt) {
-  let x = map(pt[0], 0,video.width, 0,width);
-  let y = map(pt[1], 0,video.height, 0,height);
-  return createVector(x, y);
-}
-
-
-// like loading the model, TensorFlow requires
-// we get the face data using an async function
-async function getFace() {
-  
-  // get predictions using the video as
-  // an input source (can also be an image
-  // or canvas!)
-  const predictions = await model.estimateFaces(
-    document.querySelector('video'),
-    false
-  );
-
-  // false means we want positions rather than 
-  // tensors (ie useful screen locations instead
-  // of super-mathy bits)
-  
-  // if we there were no predictions, set
-  // the face to undefined
-  if (predictions.length === 0) {
-    face = undefined;
-  }
-
-  // otherwise, grab the first face
-  else {
-    face = predictions[0];
-  }
-}
-
