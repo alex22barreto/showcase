@@ -44,7 +44,7 @@ function setup() {
   color2 = createColorPicker("#000000");
   easycam = createEasyCam();
   let state = {
-    distance: -450,           // scalar
+    distance: 450,           // scalar
     center: [0, 0, 0],       // vector
     rotation: [0, 0, 0, -1],  // quaternion
   };
