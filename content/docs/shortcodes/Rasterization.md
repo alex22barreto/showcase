@@ -1,9 +1,7 @@
 # Taller 2
 
-## Introduccion
-
 ## Contexto
-
+When a low-quality image is zoomed in or processed, the edges tend to become jagged or staggered. To solve this problem, we must apply smoothing to the figure. The process is carried out by generating a subdivision of the original pixels of the image. image in a greater number of pixels, to perform a smoothing of the edges with the use of barycentric coordinates, triangles are calculated on the original image, and taking the colors of each vertex of each triangle and performing a transformation of the color of the interior pixels with which achieves a smoothing of the edges of the original figure.
 ## Resultados
  {{< details title="p5-iframe markdown" open=false >}}
 
