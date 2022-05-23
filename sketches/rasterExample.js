@@ -1,6 +1,6 @@
 let ROWS = 20;
 let COLS = 20;
-let LENGTH = 20;
+let LENGTH = 10;
 let quadrille;
 let row0, col0, row1, col1, row2, col2;
 let img;
@@ -8,7 +8,7 @@ let c1, c2, c3 ;
 let index, r0, g0, b0, r1, g1, b1, r2, g2, b2, d;
 
 function preload() {
-  img = loadImage('/showcase/sketches/arboles.jpg');
+  img = loadImage('/showcase/sketches/vida.PNG');
 }
 
 function setup() {
@@ -109,10 +109,22 @@ function colorize_shader({ pattern: mixin }) {
 }
 
 function randomize() {
-  col0 = int(random(0, COLS));
-  row0 = int(random(0, ROWS));
-  col1 = int(random(0, COLS));
-  row1 = int(random(0, ROWS));
-  col2 = int(random(0, COLS));
-  row2 = int(random(0, ROWS));
+  var aux = int(random(0, COLS-4));
+  var auy = int(random(0, COLS-4));
+  var auxX = aux+4;
+  var auyY = auy+4;
+
+  col0 = aux;
+  row0 = auy;
+  col1 = aux;
+  row1 = auyY;
+  col2 = auxX;
+  row2 = auy;
+
+  //col0 = int(random(0, COLS));
+  //row0 = int(random(0, ROWS));
+  //col1 = int(random(0, COLS));
+  //row1 = int(random(0, ROWS));
+  //col2 = int(random(0, COLS));
+  //row2 = int(random(0, ROWS));
 }
