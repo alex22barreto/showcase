@@ -1,6 +1,6 @@
 let ROWS = 20;
 let COLS = 20;
-let LENGTH = 10;
+let LENGTH = 7;
 let quadrille;
 let row0, col0, row1, col1, row2, col2;
 let img;
