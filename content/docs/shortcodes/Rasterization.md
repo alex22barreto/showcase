@@ -15,5 +15,5 @@ When a low-quality image is zoomed in or processed, the edges tend to become jag
 
 {{< p5-iframe sketch="/showcase/sketches/rasterExample.js" lib1="https://cdn.jsdelivr.net/gh/objetos/p5.quadrille.js/p5.quadrille.js" lib2="p5.js" lib3="p5.sound.js"  width="1020" height="1020" >}}
 
-##Conclusiones y Trabajo Futuro
+## Conclusiones y Trabajo Futuro
 Improve the rasterization algorithm, changing the naive approach to a better one, able to run trough hardware, making the process faster, and to be able to use even smaller triangles for better results.
