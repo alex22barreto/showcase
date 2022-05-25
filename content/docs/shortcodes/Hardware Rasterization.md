@@ -154,3 +154,8 @@ it is way slower, so we need to wait a while for it to load.
 ## Future Work
 
 We want to improve our implementation on the 3d rasterizer, removing the useless black dots, as well as improving speed, we also want to try to implement a more immersive way to control the camera and color selection system
+
+## References
+
+Create your own 3d rasterizer By TIM Roden Broeker https://timrodenbroeker.de/rasterize3d/
+3D User Interface in Virtual Reality Gu Yue https://www.researchgate.net/publication/355951043_3D_User_Interface_in_Virtual_Reality DOI:10.1007/978-3-030-90176-9_54
