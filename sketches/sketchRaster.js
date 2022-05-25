@@ -20,10 +20,32 @@ let frames = 0;
 let sphere1;
 let sphere2;
 
+let input;
+let img2;
+let img;
+
+function handleFile(file) {
+  print(file);
+  if (file.type === 'image') {
+    img2 = loadImage(file.data, '');
+    img2.hide();
+  } else {
+    img2 = null;
+  }
+}
+
 function setup() {
+  input = createFileInput(handleFile);
+  input.position(0, 500);
   createCanvas(700, 510, WEBGL);
-  img = loadImage("/showcase/sketches/skulltest.jpg");
-  img.resize(740, 550);
+  if(img2!=null){
+    img=img2;
+    img.resize(740, 550);
+  }
+  else {
+    img = loadImage("/showcase/sketches/skulltest.jpg");
+    img.resize(740, 550);
+  }
   TileSlider = createSlider(5, 200, 50, 1);
   TileSlider.position(20, 50);
   textureMode(NORMAL);
@@ -60,19 +82,26 @@ function draw() {
   tileSize = width/tiles;
   push();
   translate(width/2-390,height/2-350);
-  scale(0.5)  
-  for (x = 0; x < tiles; x++) {
-    for (y = 0; y < tiles; y++) {
-      c = img.get(int(x*tileSize),int(y*tileSize));
-      b = map(brightness(c),0,255,1,0);
-      z = map(b,0,1,-150,150);
-      
-      push();
-      translate(x*tileSize - width/2, y*tileSize - height/2, z);
-      sphere(tileSize*b*0.8);
-      pop();
+  scale(0.5) 
+  if(img2 != null){
+    img=img2;
+    print("HOLANDAS"+img2.type);
+  } 
+  if (img) {
+    for (x = 0; x < tiles; x++) {
+      for (y = 0; y < tiles; y++) {
+        c = img.get(int(x*tileSize),int(y*tileSize));
+        b = map(brightness(c),0,255,1,0);
+        z = map(b,0,1,-150,150);
+        
+        push();
+        translate(x*tileSize - width/2, y*tileSize - height/2, z);
+        sphere(tileSize*b*0.8);
+        pop();
+      }
     }
   }
+  
   pop();
   push();
   translate(tiles/2*tileSize - width/2, tiles/2*tileSize - height/2);
