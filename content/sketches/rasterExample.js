@@ -80,12 +80,10 @@ function keyPressed() {
 }
 
 function randomize() {
-  var aux = int(random(4, COLS-4));
-  var auy = int(random(4, COLS-4));
-  var sumx = int(random(1, 4));
-  var sumy = int(random(1, 4));
-  var auxX = aux+sumx;
-  var auyY = auy+sumy;
+  var aux = int(random(0, COLS-4));
+  var auy = int(random(0, COLS-4));
+  var auxX = aux+4;
+  var auyY = auy+4;
 
   col0 = aux;
   row0 = auy;
