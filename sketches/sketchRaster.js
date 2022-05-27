@@ -7,8 +7,21 @@ let mode;
 let color1;
 let color2;
 
+// Brush controls
+let color;
+let depth;
+let brush;
+let escorzo;
+let points;
+let record;
+
+//Cam Controls
 let easycam;
-let foreshortening = true;
+let state;
+
+let raster;
+let toRast=true;
+let foreshortening = false;
 
 // bulls shape
 let circled = false;
@@ -40,16 +53,19 @@ function setup() {
   createCanvas(700, 510, WEBGL);
   if(img2!=null){
     img=img2;
-    img.resize(740, 550);
   }
   else {
     img = loadImage("/showcase/sketches/skulltest.jpg");
-    img.resize(740, 550);
+    
   }
   TileSlider = createSlider(5, 200, 50, 1);
   TileSlider.position(20, 50);
   textureMode(NORMAL);
-  toggle_3d_gui = createCheckbox('toggle 3d gui', true);
+  raster = createCheckbox('Toggle Raster',true);
+  raster.style('color', 'black');
+  raster.position(590, 10);
+  raster.changed(myCheckedEvent);
+  toggle_3d_gui = createCheckbox('Toggle 3d Gui', true);
   toggle_3d_gui.style('color', 'black');
   toggle_3d_gui.position(10, 10);
   toggle_3d_gui.changed(() => {
@@ -71,29 +87,50 @@ function setup() {
     rotation: [0, 0, 0, -1],  // quaternion
   };
   easycam.setState(state, 1000);
+  escorzo = true;
+  perspective();
+
+  // brush stuff
+  points = [];
+  depth = createSlider(0,1 ,0.01, 0.05);
+  depth.position(5, 480);
+  depth.style('width', '580px');
+  color = createColorPicker('#ed225d');
+  color.position(width - 70, 40);
+  // select initial brush
+  brush = sphereBrush;
 }
 
 function draw() {
+  update();
   background(color1.color());
+  push();
+  strokeWeight(0.8);
+  stroke('magenta');
+  grid({ dotted: false });
+  pop();
+  for (const point of points) {
+    push();
+    translate(point.worldPosition);
+    brush(point);
+    pop();
+  }
   fill(color2.color());
   noStroke();
-  sphere(1);
   tiles =  TileSlider.value();;
   tileSize = width/tiles;
-  push();
-  translate(width/2-390,height/2-350);
   scale(0.5) 
   if(img2 != null){
     img=img2;
-    print("HOLANDAS"+img2.type);
   } 
-  if (img) {
+  if(toRast){print("TESTING "+toRast)}
+  else{print("TESTING "+toRast);}
+  if (img && toRast) {
     for (x = 0; x < tiles; x++) {
       for (y = 0; y < tiles; y++) {
         c = img.get(int(x*tileSize),int(y*tileSize));
         b = map(brightness(c),0,255,1,0);
         z = map(b,0,1,-150,150);
-        
         push();
         translate(x*tileSize - width/2, y*tileSize - height/2, z);
         sphere(tileSize*b*0.8);
@@ -101,7 +138,6 @@ function draw() {
       }
     }
   }
-  
   pop();
   push();
   translate(tiles/2*tileSize - width/2, tiles/2*tileSize - height/2);
@@ -129,5 +165,53 @@ function draw() {
     beginHUD();
     color2.position(sphere2Projection.x, sphere2Projection.y);
     endHUD();
+  }
+}
+function update() {
+  let dx = abs(mouseX - pmouseX);
+  let dy = abs(mouseY - pmouseY);
+  speed = constrain((dx + dy) / (2 * (width - height)), 0, 1);
+  if (record) {
+    points.push({
+      worldPosition: treeLocation([mouseX, mouseY, depth.value()], { from: 'SCREEN', to: 'WORLD' }),
+      color: color.color(),
+      speed: speed
+    });
+  }
+}
+
+function sphereBrush(point) {
+  push();
+  noStroke();
+  // TODO parameterize sphere radius and / or
+  // alpha channel according to gesture speed
+  fill(point.color);
+  sphere(1);
+  pop();
+}
+
+function keyPressed() {
+  if (key === 'r') {
+    record = !record;
+  }
+  if (key === 'p') {
+    escorzo = !escorzo;
+    escorzo ? perspective() : ortho();
+  }
+  if (key == 'c') {
+    points = [];
+  }
+}
+
+function mouseWheel(event) {
+  //comment to enable page scrolling
+  return false;
+}
+
+function myCheckedEvent() {
+  if (raster.checked()) {
+    toRast=true;
+  } else {
+    toRast=false;
   }
 }
