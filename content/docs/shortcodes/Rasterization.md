@@ -22,7 +22,7 @@ Smoothing is nothing more than a post-processing filter, and is therefore perfor
 
 Like the smoothing process in an image post-processing process, what is done is a subdivision of an image space into much smaller frames, in order to blur the steps present at the edges of the image, actually it can generate many more steps but of a smaller size, which gives the sensation of elimination or at least the mitigation is carried out.
 With the use of the barycentric coordinates we can an area in that created subspace, recalculate the value of the color for each of the subframes that are part of the area of ​​the triangle, smoothing the edges of the original figure.
-## Resultados
+## Results
  {{< details title="p5-iframe markdown" open=false >}}
 
 ```js
@@ -127,10 +127,14 @@ function randomize() {
 ```
 {{< /details >}}
 
-
-
-
 {{< p5-iframe sketch="/showcase/sketches/rasterExample.js" lib1="https://cdn.jsdelivr.net/gh/objetos/p5.quadrille.js/p5.quadrille.js" lib2="p5.js" lib3="p5.sound.js"  width="1020" height="1020" >}}
 
 ## Conclusiones y Trabajo Futuro
+
+We've managed to create an anti aliasing effect, where we could see how the image becomes softer, sadly to have a more uniform effect, we have to use the same triangle all the time, so the effect is not as seamless as desired.
+
+![resultado anti aliasing](/showcase/sketches/hongoantialias.png)
+
+
+
 Improve the rasterization algorithm, changing the naive approach to a better one, able to run trough hardware, making the process faster, and to be able to use even smaller triangles for better results.
