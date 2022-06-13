@@ -1,3 +1,7 @@
+/*Testing*/
+
+/*Testing*/
+
 let maskShader;
 let img;
 let video_src;
@@ -8,7 +12,7 @@ function preload() {
   video_src = createVideo(['mandrill.webm']);
   video_src.hide(); // by default video shows up in separate dom
   maskShader = readShader('mask.frag', { varyings: Tree.texcoords2 });
-  img = loadImage('ojos.jpg');
+  img = loadImage('matrix.png');
  
 }
 
@@ -19,6 +23,7 @@ function setup() {
   textureMode(NORMAL);
   video_on = createCheckbox('video', false);
   video_on.style('color', 'white');
+  
   video_on.changed(() => {
     if (video_on.checked()) {
       maskShader.setUniform('texture', video_src);
@@ -49,12 +54,12 @@ function draw() {
     maskShader.setUniform('mask', [0, 0, 0, 0, 1, 0, 0, 0, 0]);
   }
   quad(-width / 2, -height / 2, width / 2, -height / 2, width / 2, height / 2, -width / 2, height / 2);
-  /*
   push();
-  noStroke();
-  quad(-width / 2, -height / 2, width / 2, -height / 2, width / 2, height / 2, -width / 2, height / 2);
-  pop();
-  */
-  // */
-  //quad(-width / 2, -height / 2, width / 2, -height / 2, width / 2, height / 2, -width / 2, height / 2);
+  copy(img, mouseX-300, mouseY-250, 10, 10, mouseX-300, mouseY-250, 100, 100);
+  stroke(255,0,0);
+  noFill();
+  // Rectangle shows area being copied
+  rect(mouseX-300, mouseY-250, 100, 100);
+  print(mouseX,mouseY);
+  pop(); 
 }
