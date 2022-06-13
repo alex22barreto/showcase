@@ -12,7 +12,7 @@ function preload() {
   video_src = createVideo(['mandrill.webm']);
   video_src.hide(); // by default video shows up in separate dom
   maskShader = readShader('mask.frag', { varyings: Tree.texcoords2 });
-  img = loadImage('matrix.png');
+  img = loadImage('ojos.jpg');
  
 }
 
@@ -55,11 +55,11 @@ function draw() {
   }
   quad(-width / 2, -height / 2, width / 2, -height / 2, width / 2, height / 2, -width / 2, height / 2);
   push();
-  copy(img, mouseX-300, mouseY-250, 10, 10, mouseX-300, mouseY-250, 100, 100);
+  // Origin X Y,taking size, Destination, Destination SIZE 
+  copy( mouseX - width/2, mouseY - height/2, 50, 50, mouseX - width/2, mouseY - height/2, 100, 100);
   stroke(255,0,0);
   noFill();
   // Rectangle shows area being copied
-  rect(mouseX-300, mouseY-250, 100, 100);
-  print(mouseX,mouseY);
+  rect(mouseX - width/2, mouseY - height/2, 100, 100);
   pop(); 
 }
