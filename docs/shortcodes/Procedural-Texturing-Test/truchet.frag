@@ -6,6 +6,8 @@ precision mediump float;
 
 uniform vec2 u_resolution;
 uniform float u_time;
+uniform float u_zoom;
+uniform float u_rotater;
 
 vec2 rotate2D (vec2 _st, float _angle) {
     _st -= 0.5;
@@ -16,14 +18,14 @@ vec2 rotate2D (vec2 _st, float _angle) {
 }
 
 vec2 tile (vec2 _st, float _zoom) {
-    _st *= _zoom;
+    _st *= u_zoom;
     return fract(_st);
 }
 
 vec2 rotateTilePattern(vec2 _st){
 
     //  Scale the coordinate system by 2x2
-    _st *= 2.0;
+    _st *= u_rotater;
 
     //  Give each cell an index number
     //  according to its position
