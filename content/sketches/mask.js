@@ -34,9 +34,23 @@ function setup() {
     }
   });
   video_on.position(10, 30);
-  mask = createCheckbox('ridges', false);
+  //Adding kernels Checkboxes
+  mask = createCheckbox('Ridges', false);
   mask.position(10, 10);
   mask.style('color', 'white');
+  //Blur
+  mask2 = createCheckbox('Blur', false);
+  mask2.position(80, 10);
+  mask2.style('color', 'white');
+  //Bottom Sobel
+  mask3 = createCheckbox('Bottom Sobel', false);
+  mask3.position(80, 30);
+  mask3.style('color', 'white');
+  //Emboss
+  mask4 = createCheckbox('Emboss', false);
+  mask4.position(140, 10);
+  mask4.style('color', 'white');
+  //Checkboxes above
   shader(maskShader);
   maskShader.setUniform('texture', img);
   emitTexOffset(maskShader, img, 'texOffset');
@@ -45,10 +59,17 @@ function setup() {
 function draw() {
   background(0);
   // /*
-  if (mask.checked()) {
-    //maskShader.setUniform('mask', [1/9, 1/9, 1/9, 1/9, 1/9, 1/9, 1/9, 1/9, 1/9]);
+  if (mask2.checked()) {
+    maskShader.setUniform('mask', [0.0625, 0.125, 0.0625, 0.125, 0.25, 0.125, 0.0625, 0.125, 0.0625]);
+  }
+  else if (mask4.checked()) {
+    maskShader.setUniform('mask', [-2, -1, 0, -1, 1, 1, 0, 1, 2]);
+  }
+  else if (mask3.checked()) {
+    maskShader.setUniform('mask', [-1, -2, -1, 0, 0, 0, 1, 2, 1]);
+  }
+  else if (mask.checked()) {
     maskShader.setUniform('mask', [-1, -1, -1, -1, 8, -1, -1, -1, -1]);
-    //maskShader.setUniform('mask', [0, -1, 0, -1, 5, -1, 0, -1, 0]);
   }
   else {
     maskShader.setUniform('mask', [0, 0, 0, 0, 1, 0, 0, 0, 0]);
