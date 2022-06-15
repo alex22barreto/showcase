@@ -30,12 +30,12 @@ function setup() {
 function draw() {
   background(33);
   orbitControl();
-  cylinder(100, 200);
+  torus(100, 50);
 }
 
 function mouseMoved() {
   // https://p5js.org/reference/#/p5.Shader/setUniform
-  truchetShader.setUniform('u_zoom', (mouseX - width/2)/25);
+  truchetShader.setUniform('u_zoom', ((mouseX - width/2)/100)+4);
   truchetShader.setUniform('u_rotater', (mouseY - height/2)/50);
   // pg clip-space quad (i.e., both x and y vertex coordinates ∈ [-1..1])
   pg.quad(-1, -1, 1, -1, 1, 1, -1, 1);
