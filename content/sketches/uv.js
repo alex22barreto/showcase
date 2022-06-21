@@ -4,7 +4,9 @@ function preload() {
   // Define geometry directly in clip space (i.e., matrices: Tree.NONE).
   // Interpolate only texture coordinates (i.e., varyings: Tree.texcoords2).
   // see: https://github.com/VisualComputing/p5.treegl#handling
+
   uvShader = readShader('/showcase/sketches/shaders/uv.frag', { matrices: Tree.NONE, varyings: Tree.texcoords2 });
+
 }
 
 function setup() {
@@ -24,5 +26,7 @@ function draw() {
   // https://p5js.org/reference/#/p5/quad
   // It's worth noting (not mentioned in the api docs) that the quad
   // command also adds the texture coordinates to each of its vertices.
+
   quad(-1, -1, 1, -1, 1, 1, -1, 1);
+
 }
