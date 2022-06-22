@@ -8,7 +8,7 @@ F=0;
 G=0;
 H=0;
 I=0;
-
+let gameStarted = false;
 kernel = [[A, B, C ], [ D,  E, -F ], [G, H, I ]]; 
 
 
@@ -18,7 +18,10 @@ function preload() {
 
 
 function setup() {
-
+  button2 = createButton("Start Your Masking");
+  button2.mousePressed(() => gameStarted = !gameStarted
+  );
+  button2.position(10,10)
   createCanvas(550, 550);
   image(img, 240, 0);
    edgeImg = createImage(img.width, img.height);
@@ -172,7 +175,8 @@ function blur() {
 
 
 function draw() {
-  noLoop();
+  if (gameStarted){
+    
     text("Valor Slider A: "+ASlider.value(),20,300);
     text("Valor Slider B: "+BSlider.value(),20,320);
     text("Valor Slider C: "+CSlider.value(),20,340);
@@ -212,4 +216,6 @@ function draw() {
   
   edgeImg.updatePixels();
   image(edgeImg, 240, 0);
+  }
+  
 }

@@ -6,7 +6,7 @@ let mode;
 // 3d gui
 let color1;
 let color2;
-
+let gameStarted = false;
 // Brush controls
 let color;
 let depth;
@@ -48,6 +48,10 @@ function handleFile(file) {
 }
 
 function setup() {
+  button = createButton("Start Your Drawing");
+  button.mousePressed(() => gameStarted = !gameStarted
+  );
+  button.position(650,500)
   input = createFileInput(handleFile);
   input.position(0, 500);
   createCanvas(700, 510, WEBGL);
@@ -102,7 +106,8 @@ function setup() {
 }
 
 function draw() {
-  update();
+  if (gameStarted) {
+    update();
   background(color1.color());
   push();
   strokeWeight(0.8);
@@ -123,8 +128,6 @@ function draw() {
   if(img2 != null){
     img=img2;
   } 
-  if(toRast){print("TESTING "+toRast)}
-  else{print("TESTING "+toRast);}
   if (img && toRast) {
     for (x = 0; x < tiles; x++) {
       for (y = 0; y < tiles; y++) {
@@ -138,7 +141,6 @@ function draw() {
       }
     }
   }
-  pop();
   push();
   translate(tiles/2*tileSize - width/2, tiles/2*tileSize - height/2);
   sphere1 = mMatrix();
@@ -165,8 +167,10 @@ function draw() {
     beginHUD();
     color2.position(sphere2Projection.x, sphere2Projection.y);
     endHUD();
+  } 
   }
 }
+
 function update() {
   let dx = abs(mouseX - pmouseX);
   let dy = abs(mouseY - pmouseY);
