@@ -113,7 +113,7 @@ if (option == 1){
     float df = 1.0;
     df = hex(fpos,ipos.x+ipos.y+t)+(1.0-rect(fpos,vec2(0.7)));
 
-    gl_FragColor = vec4(mix(vec3(0.),vec3(v1/v2),step(0.7,df)),1.0);
+    gl_FragColor = vec4(mix(vec3(0.),vec3(0.9),step(0.7,df)),1.0);
 }
 else if(option ==4){
         vec2 st = gl_FragCoord.xy/u_resolution.xy;

@@ -51,6 +51,8 @@ function draw() {
   vertex(85, 20);
   vertex(85, 75);
   vertex(30, 75);
+  uvShader.setUniform("u_valueX",30);
+  uvShader.setUniform("u_valueY",20);
   endShape(CLOSE);
   pop();
 }
