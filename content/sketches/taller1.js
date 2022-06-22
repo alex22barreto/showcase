@@ -172,6 +172,7 @@ function blur() {
 
 
 function draw() {
+  noLoop();
     text("Valor Slider A: "+ASlider.value(),20,300);
     text("Valor Slider B: "+BSlider.value(),20,320);
     text("Valor Slider C: "+CSlider.value(),20,340);
