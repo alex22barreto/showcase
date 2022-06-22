@@ -1,5 +1,6 @@
 let easycam;
 let uvShader;
+let colorR;
 
 function preload() {
   // Define geometry in world space (i.e., matrices: Tree.pmvMatrix).
@@ -16,9 +17,16 @@ function setup() {
   textureMode(NORMAL);
   // use custom shader
   shader(uvShader);
+  colorR = createSlider(0, 1, 0.5, 0.01);
+  colorR.position(10, 25);
+  colorR.style('width', '280px');
 }
 
+
 function draw() {
+  
+  uvShader.setUniform('colorR', colorR.value());
+
   background(200);
   orbitControl();
   axes();
