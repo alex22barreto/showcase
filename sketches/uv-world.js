@@ -1,58 +1,82 @@
-let easycam;
-let uvShader;
-let a,b,c;
-let daShade;
-function preload() {
-  // Define geometry in world space (i.e., matrices: Tree.pmvMatrix).
-  // The projection and modelview matrices may be emitted separately
-  // (i.e., matrices: Tree.pMatrix | Tree.mvMatrix), which actually
-  // leads to the same gl_Position result.
-  // Interpolate only texture coordinates (i.e., varyings: Tree.texcoords2).
-  // see: https://github.com/VisualComputing/p5.treegl#handling
-  uvShader = readShader('uv.frag', {  matrices: Tree.NONE, varyings: Tree.texcoords2 });
-}
+const vert = `#ifdef GL_ES
+precision mediump float;
+#endif
+
+// =====================================
+// Built in p5js uniforms and attributes
+// =====================================
+
+uniform mat4 uModelViewMatrix;
+uniform mat4 uProjectionMatrix;
+
+attribute vec3 aPosition;    // Vertex position
+attribute vec2 aTexCoord;    // Vertex texture coordinate
+attribute vec3 aNormal;      // Vertex normal
+attribute vec4 aVertexColor; // Vertex color
+
+// =====================================
+
+varying vec3 vPosition;
+varying vec2 vTexCoord;
+
+void main() {
+
+  // Store the vertex position for use in the fragment shader
+  vPosition = aPosition;
+  vTexCoord = aTexCoord;
+
+  // Set the vertex position without any change besides the view transformations
+  // Note: it is important to apply these matrices to get your shape to render in the correct location
+  gl_Position = uProjectionMatrix * uModelViewMatrix * vec4(aPosition, 1.0);
+}`;
+
+const frag = `#ifdef GL_ES
+precision mediump float;
+#endif
+  
+// Position in world space
+varying vec3 vPosition;
+// Position in texture space
+varying vec2 vTexCoord;
+
+// Ignored
+uniform sampler2D uSampler;
+
+void main() {
+  // Color based on texture coordinate position
+  vec2 st = vTexCoord.xy;
+  vec4 tex = texture2D(uSampler, vTexCoord);
+
+  // Go from red to green on one diagonal and white to black on the other.
+  gl_FragColor =vec4(vTexCoord, 0.5, 1.0);; // R,G,B,A
+}`;
+
+let shdr;
 
 function setup() {
-  createCanvas(300, 300, WEBGL);
-  daShade= createGraphics(250,250,WEBGL);
+  createCanvas(400, 400, WEBGL);
+  shdr = createShader(vert, frag);
   textureMode(NORMAL);
-  // use custom shader
- daShade.shader(uvShader);
- daShade.noStroke();
- daShade.textureMode(NORMAL);
-  // use truchetShader to render onto pg
-  daShade.shader(uvShader);
-  // emitResolution, see:
-  // https://github.com/VisualComputing/p5.treegl#macros
-  daShade.emitResolution(uvShader);
-  texture(daShade);
-  daShade.quad(-1, -1, 1, -1, 1, 1, -1, 1);
+  noStroke();
 }
 
 function draw() {
-  background(200);
-  orbitControl();
+  background(255);
   axes();
-  push();
-  
-  a= Math.random() * 300;
-  b= Math.random() * 300;
-  c=0;
-  // world-space quad (i.e., p5 world space definition: https://shorturl.at/dhCK2)
-  
-  box(20,20);
-  ellipse(5, 5, 350, 350);
- 
-  pop();
-  push();
-  daShade.shader(uvShader);
+  shader(shdr);
+  orbitControl(4, 2, 0.1);
   beginShape();
-  vertex(30, 20);
-  vertex(85, 20);
-  vertex(85, 75);
-  vertex(30, 75);
-  uvShader.setUniform("u_valueX",30);
-  uvShader.setUniform("u_valueY",20);
-  endShape(CLOSE);
-  pop();
+  //Triangulo 2d
+  normal(2, 1, 1);
+  //Cara 1  
+  vertex(0, 10,0,-0.5);
+  vertex(100, 10,0,3.5);
+  vertex(50, -100,-25,0);  
+  vertex(0, 10,0,0)
+  vertex(50,10,-100,1)  
+  vertex(50, -100,-25,1);  
+  vertex(50,10,-100);
+  vertex(100, 10,0,1);  
+  endShape();
+  
 }
