@@ -3,6 +3,7 @@ let truchetShader;
 let colorer;
 let colorer2;
 let styler;
+let gameStarted = false;
 function preload() {
   // shader adapted from here: https://thebookofshaders.com/09/
   truchetShader = readShader('truchet.frag', { matrices: Tree.NONE, varyings: Tree.NONE });
