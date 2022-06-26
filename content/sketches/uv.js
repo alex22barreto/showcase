@@ -31,7 +31,6 @@ function draw() {
   // It's worth noting (not mentioned in the api docs) that the quad
   // command also adds the texture coordinates to each of its vertices.
   
-  
   uvShader.setUniform('colorR', colorR.value());
   quad(-1, -1, 1, -1, 1, 1, -1, 1);
 

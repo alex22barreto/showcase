@@ -7,7 +7,7 @@ precision mediump float;
 #define PI 3.14159265358979323846
 
 uniform vec2 u_resolution;
-uniform float u_time;
+uniform float u_time, u_zoom, u_rotater;
 
 vec2 rotate2D (vec2 _st, float _angle) {
     _st -= 0.5;
@@ -18,7 +18,7 @@ vec2 rotate2D (vec2 _st, float _angle) {
 }
 
 vec2 tile (vec2 _st, float _zoom) {
-    _st *= _zoom;
+    _st *= u_zoom;
     return fract(_st);
 }
 
