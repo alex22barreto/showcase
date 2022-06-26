@@ -22,6 +22,8 @@ Smoothing is nothing more than a post-processing filter, and is therefore perfor
 
 Like the smoothing process in an image post-processing process, what is done is a subdivision of an image space into much smaller frames, in order to blur the steps present at the edges of the image, actually it can generate many more steps but of a smaller size, which gives the sensation of elimination or at least the mitigation is carried out.
 With the use of the barycentric coordinates we can an area in that created subspace, recalculate the value of the color for each of the subframes that are part of the area of ​​the triangle, smoothing the edges of the original figure.
+
+Press R to change apply antialiasing on a random position
 ## Results
  {{< details title="p5-iframe markdown" open=false >}}
 

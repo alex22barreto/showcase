@@ -6,13 +6,17 @@ let row0, col0, row1, col1, row2, col2;
 let img;
 let c1, c2, c3 ;
 let index, r0, g0, b0, r1, g1, b1, r2, g2, b2, d;
+let gameStarted = false;
 
 function preload() {
   img = loadImage('/showcase/sketches/vida.PNG');
 }
 
 function setup() {
-  
+  button = createButton("Start Your Antialias");
+  button.mousePressed(() => gameStarted = !gameStarted
+  );
+  button.position(10,10)
   ROWS = Math.floor(img.height/LENGTH);
   COLS = Math.floor(img.width/LENGTH);
   createCanvas(1000, 1000);
@@ -42,9 +46,10 @@ function setup() {
 }
 
 function draw() {
+  if (gameStarted){
   background('#060621');
   drawQuadrille(quadrille, { cellLength: LENGTH, outlineWeight: 0.01,outline: 'green' });
-  tri();
+  tri();}
 }
 
 function tri() {

@@ -3,12 +3,17 @@ let truchetShader;
 let colorer;
 let colorer2;
 let styler;
+let gameStarted = false;
 function preload() {
   // shader adapted from here: https://thebookofshaders.com/09/
   truchetShader = readShader('truchet.frag', { matrices: Tree.NONE, varyings: Tree.NONE });
 }
 
 function setup() {
+  colorer = Math.random() * 1.5;
+  colorer2 =  Math.random() * 1.5;
+  truchetShader.setUniform('v1', colorer);
+  truchetShader.setUniform('v2', colorer2);
   createCanvas(600, 600, WEBGL);
   // create frame buffer object to render the procedural texture
   pg = createGraphics(400, 400, WEBGL);
@@ -59,6 +64,7 @@ function draw() {
   }else if(option2.value()==1){
     styler=1;
     truchetShader.setUniform('option',styler);
+    truchetShader.setUniform('u_rotater', tiling2.value(4));
   }else if(option2.value()==2){
     styler=2;
     truchetShader.setUniform('option',styler);
@@ -83,13 +89,11 @@ function draw() {
  
   truchetShader.setUniform('u_zoom', tiling.value());
   truchetShader.setUniform('u_rotater', tiling2.value());
+  print(tiling2.value());
   // pg clip-space quad (i.e., both x and y vertex coordinates ∈ [-1..1])
   pg.quad(-1, -1, 1, -1, 1, 1, -1, 1);
   if(frameCount%60==0){
     truchetShader.setUniform('u_time', frameCount/60);
-    colorer = Math.random() * 1.5;
-    colorer2 =  Math.random() * 1.5;
-    truchetShader.setUniform('v1', colorer);
-    truchetShader.setUniform('v2', colorer2);
+   
   }
 }
