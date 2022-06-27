@@ -4,7 +4,8 @@ let video_src;
 let video_on;
 let mask;
 let w = 80;
-
+let radio;
+let alto = 500;
 
 function preload() {
   video_src = createVideo(['/showcase/sketches/mandrill.webm']);
@@ -17,7 +18,7 @@ function preload() {
 
 function setup() {
   // shaders require WEBGL mode to work
-  createCanvas(650, 500, WEBGL);
+  createCanvas(650, alto, WEBGL);
   noStroke();
   textureMode(NORMAL);
   video_on = createCheckbox('video', false);
@@ -31,18 +32,36 @@ function setup() {
       video_src.pause();
     }
   });
-  video_on.position(10, 30);
+  video_on.position(10, (alto +30));
   mask = createCheckbox('ridges', false);
-  mask.position(10, 10);
+  mask.position(10, (alto +10));
   mask.style('color', 'white');
   shader(maskShader);
   maskShader.setUniform('texture', img);
   emitTexOffset(maskShader, img, 'texOffset');
+
+  radio = createSlider(0, 1, 0.2, 0.05);
+  radio.position(10, (alto +50));
+  radio.style('width', '280px');
+
 }
 
 function draw() {
   background(0);
   // /*
+
+  maskShader.setUniform('radius', radio.value()); 
+
+  maskShader.setUniform('mouse_position_x', ((mouseX * pixelDensity())/width)); 
+  maskShader.setUniform('mouse_position_y', (((mouseY) * pixelDensity())/height)); 
+
+  maskShader.setUniform('mouse_pointer_x', (mouseX * pixelDensity())); 
+  maskShader.setUniform('mouse_pointer_y', ((height - mouseY) * pixelDensity())); 
+
+  maskShader.setUniform('mouse_resolution_x', (width * pixelDensity())); 
+  maskShader.setUniform('mouse_resolution_y', (height * pixelDensity())); 
+
+  //emitPointerPosition(maskShader, pointerX, pointerY, [uniform = 'u_pointer'])
   
   if (mask.checked()) {
     //maskShader.setUniform('mask', [1/9, 1/9, 1/9, 1/9, 1/9, 1/9, 1/9, 1/9, 1/9]);

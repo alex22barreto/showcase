@@ -5,6 +5,13 @@ let video_on;
 let mask;
 let alto = 500;
 let radio;
+
+let grey_scale;
+let igrey_scale;
+let vgrey_scale;
+let lgrey_scale;
+let hsvgrey_scale;
+
 A=0;
 B=0;
 C=0;
@@ -20,7 +27,8 @@ function preload() {
   video_src.hide(); // by default video shows up in separate dom
   maskShader = readShader('/showcase/sketches/shaders/maskABExample.frag', { varyings: Tree.texcoords2 });
   
-  img = loadImage('/showcase/sketches/arboles.jpg');
+  //img = loadImage('/showcase/sketches/arboles.jpg');
+  img = loadImage('/showcase/sketches/fire_breathing.png');
   
 }
 
@@ -44,12 +52,41 @@ function setup() {
   mask = createCheckbox('Aplicar mascara con los siguientes valores:', true);
   mask.position(10, (alto +70));
   mask.style('color', 'white');
+  mask.changed(maskmyCheckedEvent);
+
+  
   shader(maskShader);
   maskShader.setUniform('texture', img);
   emitTexOffset(maskShader, img, 'texOffset');
   radio = createSlider(0, 1, 0.2, 0.05);
   radio.position(10, (alto +50));
   radio.style('width', '280px');
+  
+
+  grey_scale = createCheckbox('luma', false);
+  grey_scale.position(75, (alto +30));
+  grey_scale.style('color', 'white');  
+  grey_scale.changed(greymyCheckedEvent);
+
+  igrey_scale = createCheckbox('Promedio', false);
+  igrey_scale.position(130, (alto +30));
+  igrey_scale.style('color', 'white');  
+  igrey_scale.changed(imyCheckedEvent);
+
+  vgrey_scale = createCheckbox('valor V', false);
+  vgrey_scale.position(215, (alto +30));
+  vgrey_scale.style('color', 'white');  
+  vgrey_scale.changed(vmyCheckedEvent);
+
+  lgrey_scale = createCheckbox('luminosidad L', false);
+  lgrey_scale.position(285, (alto +30));
+  lgrey_scale.style('color', 'white');  
+  lgrey_scale.changed(lmyCheckedEvent);
+
+  hsvgrey_scale = createCheckbox('HSV', false);
+  hsvgrey_scale.position(400, (alto +30));
+  hsvgrey_scale.style('color', 'white');  
+  hsvgrey_scale.changed(hsvmyCheckedEvent);
   
 
   ASlider = createInput(-1);
@@ -119,6 +156,13 @@ function draw() {
   H = HSlider.value();
   I = ISlider.value();
   
+  maskShader.setUniform('grey_scale', grey_scale.checked());
+  maskShader.setUniform('igrey_scale', igrey_scale.checked());
+  maskShader.setUniform('vgrey_scale', vgrey_scale.checked());
+  maskShader.setUniform('lgrey_scale', lgrey_scale.checked());
+  maskShader.setUniform('hsvgrey_scale', hsvgrey_scale.checked());
+  maskShader.setUniform('mascara', mask.checked());
+
 
   video_on.changed(() => {
     if (video_on.checked()) {
@@ -252,4 +296,74 @@ function emboss(){
   GSlider.value(G);
   HSlider.value(H);
   ISlider.value(I);
+
+  
+}
+
+function maskmyCheckedEvent() {
+  
+  if (mask.checked()) {
+    grey_scale.checked(false);
+    igrey_scale.checked(false);
+    vgrey_scale.checked(false);
+    lgrey_scale.checked(false);
+    hsvgrey_scale.checked(false);
+    console.log('mascara!');
+  } 
+}
+
+function greymyCheckedEvent() {
+  
+   if (grey_scale.checked()){
+    mask.checked(false);
+    igrey_scale.checked(false);
+    vgrey_scale.checked(false);
+    lgrey_scale.checked(false);
+    hsvgrey_scale.checked(false);
+    console.log('grey_scale!');
+  }
+}
+
+function imyCheckedEvent() {
+  if (igrey_scale.checked()){
+    mask.checked(false);
+    grey_scale.checked(false);
+    vgrey_scale.checked(false);
+    lgrey_scale.checked(false);
+    hsvgrey_scale.checked(false);
+    console.log('igrey_scale!');
+  }
+}
+
+function vmyCheckedEvent() {
+  if (vgrey_scale.checked()){
+    mask.checked(false);
+    grey_scale.checked(false);
+    igrey_scale.checked(false);
+    lgrey_scale.checked(false);
+    hsvgrey_scale.checked(false);
+    console.log('vgrey_scale!');
+  }
+}
+
+function lmyCheckedEvent() {
+   if (lgrey_scale.checked()){
+    mask.checked(false);
+    grey_scale.checked(false);
+    igrey_scale.checked(false);
+    vgrey_scale.checked(false);
+    hsvgrey_scale.checked(false);
+    console.log('lgrey_scale!');
+  }
+}
+
+function hsvmyCheckedEvent() {
+  if (hsvgrey_scale.checked()){
+    mask.checked(false);
+    grey_scale.checked(false);
+    igrey_scale.checked(false);
+    vgrey_scale.checked(false);
+    lgrey_scale.checked(false);
+    console.log('hsvgrey_scale!');
+  }
 }
