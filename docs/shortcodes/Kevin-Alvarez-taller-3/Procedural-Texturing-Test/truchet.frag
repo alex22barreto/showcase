@@ -126,14 +126,14 @@ else if(option ==4){
   float f = fract(x);
 
   color = vec3( fillY(st,mix(a,b,f),0.01) );
-
-   gl_FragColor = vec4(v2,v1,color);
+  
+   gl_FragColor = vec4(10.5,9.5,color);
     }
     else {
     vec2 st = gl_FragCoord.xy/u_resolution.xy;
     vec3 color = vec3(1.5);
     st = brickTile(st,u_rotater);
     color = vec3(box(st,vec2(v1)));
-    gl_FragColor = vec4(v2,v1,color);
+    gl_FragColor = vec4(10.5,9.5,color);
     }
 }
