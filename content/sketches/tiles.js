@@ -5,7 +5,6 @@ let colorer2;
 let styler;
 let gameStarted = false;
 function preload() {
-  // shader adapted from here: https://thebookofshaders.com/09/
   truchetShader = readShader('truchet.frag', { matrices: Tree.NONE, varyings: Tree.NONE });
 }
 
@@ -56,7 +55,7 @@ function setup() {
 }
 
 function draw() {
-  background(33);
+  background(120);
   orbitControl();
   if(option2.value()==0){
     styler=0;

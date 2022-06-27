@@ -12,7 +12,7 @@ function preload() {
 
 function setup() {
   // shaders require WEBGL mode to work
-  createCanvas(300, 300, WEBGL);
+  createCanvas(470, 470, WEBGL);
   //noStroke();
   // see: https://p5js.org/reference/#/p5/shader
   shader(uvShader);

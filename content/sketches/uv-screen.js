@@ -11,9 +11,10 @@ function preload() {
   // see: https://github.com/VisualComputing/p5.treegl#handling
   uvShader = readShader('uv_alpha.frag', { matrices: Tree.pmvMatrix, varyings: Tree.texcoords2 });
 }
-
+//KEVIN FILE (?) THERE ARE TWO FILES WITH THE SAME NAME
+//NO IDEA HOW IT CAN BE
 function setup() {
-  createCanvas(300, 300, WEBGL);
+  createCanvas(470, 470, WEBGL);
   // easycam stuff
   let state = {
     distance: 250,           // scalar
