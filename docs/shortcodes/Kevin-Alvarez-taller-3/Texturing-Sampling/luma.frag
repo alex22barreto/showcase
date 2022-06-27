@@ -4,6 +4,7 @@ precision mediump float;
 bool grey_scale;
 uniform sampler2D texture;
 uniform int chaval;
+uniform int colval;
 // interpolated texcoord (same name and type as in vertex shader)
 varying vec2 texcoords2;
 uniform sampler2D tex;
@@ -65,23 +66,41 @@ vec3 rgb2hsl( vec3 c ){
 
 
 void main() {
-  // texture2D(texture, texcoords2) samples texture at texcoords2 
-  // and returns the normalized texel color
- if(chaval == 0 || chaval == 1) {if(chaval==0){grey_scale=false;}
-  else if(chaval==1){grey_scale=true;}
+  vec4 salVal;
+ if(chaval == 0 || chaval == 1) {
+  if(chaval==0){
+    grey_scale=false;
+    }
+  else if(chaval==1){
+    grey_scale=true;
+    }
   vec4 texel = texture2D(texture, texcoords2);
-  gl_FragColor = grey_scale ? vec4((vec3(luma(texel.rgb))), 1.0) : texel;}
+  salVal = grey_scale ? vec4((vec3(luma(texel.rgb))), 1.0) : texel;}
 
   if (chaval == 2){
     vec4 textureColor = texture2D(texture, texcoords2);
     vec3 fragRGB = textureColor.rgb;
     vec3 fragHSV = rgb2hsv(fragRGB).xyz;
-    gl_FragColor = vec4(fragHSV, 1.0);
+   salVal = vec4(fragHSV, 1.0);
   }
   if (chaval == 3){
     vec4 textureColor = texture2D(texture, texcoords2);
     vec3 fragRGB = textureColor.rgb;
     vec3 fragHSL = rgb2hsl(fragRGB).xyz;
-    gl_FragColor = vec4(fragHSL, textureColor.w);
+    salVal = vec4(fragHSL, textureColor.w);
   }
+  if(colval==0 && chaval!=1){
+    salVal.rgb=salVal.rgb*1.0;
+  }
+  if(colval==1 && chaval!=1){
+    salVal.rgb=salVal.rgb*vec3(1.0, 0.0, 0.0);
+  }
+  if(colval==2 && chaval!=1){
+    salVal.rgb=salVal.rgb*vec3(0.0, 1.0, 0.0);
+  }
+  if(colval==3 && chaval!=1){
+    salVal.rgb=salVal.rgb*vec3(0.0, 0.0, 1.0);
+  }
+  
+  gl_FragColor=salVal;
 }
