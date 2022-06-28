@@ -1,15 +1,18 @@
-<!doctype html><html lang=en-us dir=ltr><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Texturing and Coloring # UV Shader Test
-UV World Test"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content><meta property="og:description" content="Texturing and Coloring # UV Shader Test
-UV World Test"><meta property="og:type" content="article"><meta property="og:url" content="https://visualcomputing.github.io/showcase/docs/shortcodes/Kevin-Alvarez-taller-3/Texturing-and-Coloring/"><meta property="article:section" content="docs"><meta property="article:modified_time" content="2022-06-27T10:23:12-05:00"><title>Texturing and Coloring | Showcase Template</title><link rel=manifest href=/showcase/manifest.json><link rel=icon href=/showcase/favicon.png type=image/x-icon><link rel=stylesheet href=/showcase/book.min.ab46de3e725a6415339a37bba23a0067534a37289b063c9f8d011515a63097a8.css integrity="sha256-q0bePnJaZBUzmje7ojoAZ1NKNyibBjyfjQEVFaYwl6g=" crossorigin=anonymous><script defer src=/showcase/flexsearch.min.js></script>
-<script defer src=/showcase/en.search.min.6229bc2cc97fb1c19a10186124a77882f267d74d54db11f10a78a8d1a7d33e56.js integrity="sha256-Yim8LMl/scGaEBhhJKd4gvJn101U2xHxCnio0afTPlY=" crossorigin=anonymous></script></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
+<!doctype html><html lang=en-us dir=ltr><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Texturing and Coloring # Background # We can use shaders as a texture, this allows us to give any 3d object a more dynamic appearance, shaders are simple scripts that allows us to map a color to each pixel of a given image, using parameters such as model coordinates. In this workshop we faced the challenge of mapping a shader on a non-primitive object, that is, using begin and end shape on p5, we faced some issues, the main one was that the shader was never applied on our shape, to solve this issue we needed to send the texture coordinates to a vertex shader, which is later sent to the fragment shader, this method allowed us to map our shader as a texture."><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content><meta property="og:description" content="Texturing and Coloring # Background # We can use shaders as a texture, this allows us to give any 3d object a more dynamic appearance, shaders are simple scripts that allows us to map a color to each pixel of a given image, using parameters such as model coordinates. In this workshop we faced the challenge of mapping a shader on a non-primitive object, that is, using begin and end shape on p5, we faced some issues, the main one was that the shader was never applied on our shape, to solve this issue we needed to send the texture coordinates to a vertex shader, which is later sent to the fragment shader, this method allowed us to map our shader as a texture."><meta property="og:type" content="article"><meta property="og:url" content="https://visualcomputing.github.io/showcase/docs/shortcodes/Kevin-Alvarez-taller-3/Texturing-and-Coloring/"><meta property="article:section" content="docs"><meta property="article:modified_time" content="2022-06-27T20:37:51-05:00"><title>Texturing and Coloring | Showcase Template</title><link rel=manifest href=/showcase/manifest.json><link rel=icon href=/showcase/favicon.png type=image/x-icon><link rel=stylesheet href=/showcase/book.min.ab46de3e725a6415339a37bba23a0067534a37289b063c9f8d011515a63097a8.css integrity="sha256-q0bePnJaZBUzmje7ojoAZ1NKNyibBjyfjQEVFaYwl6g=" crossorigin=anonymous><script defer src=/showcase/flexsearch.min.js></script>
+<script defer src=/showcase/en.search.min.f2a7fe0d7b4b9443fbb098985d4c72456e3ae6116e01d7864c2f59403ff3620d.js integrity="sha256-8qf+DXtLlEP7sJiYXUxyRW465hFuAdeGTC9ZQD/zYg0=" crossorigin=anonymous></script></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
 <input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center" href=/showcase/><span>Showcase Template</span></a></h2><div class=book-search><input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><ul><li class=book-section-flat><span>Shortcodes</span><ul><li><a href=/showcase/docs/shortcodes/Alex-Jose-Alberto-Barreto-Cajica/>Alex Jose Alberto Barreto Cajica</a></li><li class=book-section-flat><input type=checkbox id=section-630935959cdea826d86db722189d9fc3 class=toggle>
 <label for=section-630935959cdea826d86db722189d9fc3 class="flex justify-between"><a role=button>Alex Barreto Taller 3</a></label><ul><li><a href=/showcase/docs/shortcodes/Alex-Barreto-Taller-3/imageProcessingAB/>Image Processing Ab</a></li><li><a href=/showcase/docs/shortcodes/Alex-Barreto-Taller-3/proceduralTexturingAB/>Procedural Texturing Ab</a></li><li><a href=/showcase/docs/shortcodes/Alex-Barreto-Taller-3/ShadersColoring/>Shaders Coloring</a></li><li><a href=/showcase/docs/shortcodes/Alex-Barreto-Taller-3/texturing3d/>Texturing3d</a></li></ul></li><li><a href=/showcase/docs/shortcodes/Kevin-Leonardo-Alvarez-Mora/>Kevin Leonardo Alvarez Mora</a></li><li class=book-section-flat><input type=checkbox id=section-6c82348cc7e27aac3c1d770d323371bc class=toggle checked>
-<label for=section-6c82348cc7e27aac3c1d770d323371bc class="flex justify-between"><a role=button>Kevin Alvarez Taller 3</a></label><ul><li><a href=/showcase/docs/shortcodes/Kevin-Alvarez-taller-3/Image-Processing-Test/>Image Processing Test</a></li><li><a href=/showcase/docs/shortcodes/Kevin-Alvarez-taller-3/Procedural-Texturing-Test/>Procedural Texturing Test</a></li><li><a href=/showcase/docs/shortcodes/Kevin-Alvarez-taller-3/Texturing-and-Coloring/ class=active>Texturing and Coloring</a></li><li><a href=/showcase/docs/shortcodes/Kevin-Alvarez-taller-3/Texturing-Sampling/>Texturing Sampling</a></li></ul></li><li class=book-section-flat><input type=checkbox id=section-0fadc94d8f5643cd50fedd7792885ef2 class=toggle>
+<label for=section-6c82348cc7e27aac3c1d770d323371bc class="flex justify-between"><a role=button>Kevin Alvarez Taller 3</a></label><ul><li><a href=/showcase/docs/shortcodes/Kevin-Alvarez-taller-3/Image-Processing/>Image Processing</a></li><li><a href=/showcase/docs/shortcodes/Kevin-Alvarez-taller-3/Procedural-Texturing/>Procedural Texturing</a></li><li><a href=/showcase/docs/shortcodes/Kevin-Alvarez-taller-3/Texturing-and-Coloring/ class=active>Texturing and Coloring</a></li><li><a href=/showcase/docs/shortcodes/Kevin-Alvarez-taller-3/Texturing-Sampling/>Texturing Sampling</a></li></ul></li><li class=book-section-flat><input type=checkbox id=section-0fadc94d8f5643cd50fedd7792885ef2 class=toggle>
 <label for=section-0fadc94d8f5643cd50fedd7792885ef2 class="flex justify-between"><a role=button>Taller 1</a></label><ul><li><a href=/showcase/docs/shortcodes/Taller-1/Taller1/>Taller1</a></li><li><a href=/showcase/docs/shortcodes/Taller-1/webgltest/>Webgltest</a></li></ul></li><li class=book-section-flat><input type=checkbox id=section-95240f4003777a8a4aa5703702dd7bb0 class=toggle>
 <label for=section-95240f4003777a8a4aa5703702dd7bb0 class="flex justify-between"><a role=button>Taller 2</a></label><ul><li><a href=/showcase/docs/shortcodes/Taller-2/3d-Brush/>3d Brush</a></li><li><a href=/showcase/docs/shortcodes/Taller-2/Rasterization/>Rasterization</a></li><li><a href=/showcase/docs/shortcodes/Taller-2/WebCamTest/>Web Cam Test</a></li></ul></li></ul></li></ul><ul><li><a href=/showcase/posts/>Blog</a></li></ul></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class=book-header><div class="flex align-center justify-between"><label for=menu-control><img src=/showcase/svg/menu.svg class=book-icon alt=Menu></label>
 <strong>Texturing and Coloring</strong>
-<label for=toc-control><img src=/showcase/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class="hidden clearfix"><nav id=TableOfContents><ul><li><a href=#texturing-and-coloring>Texturing and Coloring</a></li></ul></nav></aside></header><article class=markdown><h1 id=texturing-and-coloring>Texturing and Coloring
-<a class=anchor href=#texturing-and-coloring>#</a></h1><p>UV Shader Test</p><iframe id=uv style=width:500px;height:500px srcdoc="
+<label for=toc-control><img src=/showcase/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class="hidden clearfix"><nav id=TableOfContents><ul><li><a href=#texturing-and-coloring>Texturing and Coloring</a><ul><li><a href=#background>Background</a><ul><li><a href=#uv-mapping>UV Mapping</a></li></ul></li><li><a href=#results>Results</a></li><li><a href=#conclusions-and-future-work>Conclusions and Future Work</a></li><li><a href=#references>References</a></li></ul></li></ul></nav></aside></header><article class=markdown><h1 id=texturing-and-coloring>Texturing and Coloring
+<a class=anchor href=#texturing-and-coloring>#</a></h1><h2 id=background>Background
+<a class=anchor href=#background>#</a></h2><p>We can use shaders as a texture, this allows us to give any 3d object a more dynamic appearance,
+shaders are simple scripts that allows us to map a color to each pixel of a given image, using parameters such as model coordinates. In this workshop we faced the challenge of mapping a shader on a non-primitive object, that is, using begin and end shape on p5, we faced some issues, the main one was that the shader was never applied on our shape, to solve this issue we needed to send the texture coordinates to a vertex shader, which is later sent to the fragment shader, this method allowed us to map our shader as a texture.</p><h3 id=uv-mapping>UV Mapping
+<a class=anchor href=#uv-mapping>#</a></h3><p>This is the method used, it allows us to project or map a 2d image into a 3d model, it is called UV because it is using U and V as 2d coordinates, it creates a 2d representation of the 3d object and then &ldquo;wraps&rdquo; the 2d image or texture onto it, this is a very convenient way to texture models, although it come with some compromises, like distortion of the textures.</p><h2 id=results>Results
+<a class=anchor href=#results>#</a></h2><p>Now, our first task was to modify our UV to have a blue channel, you can check that out below.
+you can use the sliders to adjust the color channels.</p><p>UV Shader</p><iframe id=uv style=width:500px;height:500px srcdoc="
         <!DOCTYPE html>
         <html>
           <head>
@@ -25,7 +28,85 @@ UV World Test"><meta property="og:type" content="article"><meta property="og:url
           <body>
           </body>
         </html>
-      "></iframe><p>UV World Test</p><iframe id=uv-world style=width:500px;height:500px srcdoc="
+      "></iframe>
+<details><summary>uv.js</summary><div class=markdown-inner><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-js data-lang=js><span style=display:flex><span><span style=color:#66d9ef>let</span> <span style=color:#a6e22e>uvShader</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>let</span> <span style=color:#a6e22e>colorR</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>function</span> <span style=color:#a6e22e>preload</span>() {
+</span></span><span style=display:flex><span>  <span style=color:#75715e>// Define geometry directly in clip space (i.e., matrices: Tree.NONE).
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#75715e>// Interpolate only texture coordinates (i.e., varyings: Tree.texcoords2).
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#75715e>// see: https://github.com/VisualComputing/p5.treegl#handling
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>uvShader</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>readShader</span>(<span style=color:#e6db74>&#39;/showcase/sketches/shaders/uv.frag&#39;</span>, { <span style=color:#a6e22e>matrices</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>Tree</span>.<span style=color:#a6e22e>NONE</span>, <span style=color:#a6e22e>varyings</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>Tree</span>.<span style=color:#a6e22e>texcoords2</span> });
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>function</span> <span style=color:#a6e22e>setup</span>() {
+</span></span><span style=display:flex><span>  <span style=color:#75715e>// shaders require WEBGL mode to work
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#a6e22e>createCanvas</span>(<span style=color:#ae81ff>470</span>, <span style=color:#ae81ff>470</span>, <span style=color:#a6e22e>WEBGL</span>);
+</span></span><span style=display:flex><span>  <span style=color:#75715e>//noStroke();
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#75715e>// see: https://p5js.org/reference/#/p5/shader
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#a6e22e>shader</span>(<span style=color:#a6e22e>uvShader</span>);
+</span></span><span style=display:flex><span>  <span style=color:#75715e>// https://p5js.org/reference/#/p5/textureMode
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#75715e>// best and simplest is to just always used NORMAL
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#a6e22e>textureMode</span>(<span style=color:#a6e22e>NORMAL</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>colorR</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>createSlider</span>(<span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>0.5</span>, <span style=color:#ae81ff>0.01</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>colorR</span>.<span style=color:#a6e22e>position</span>(<span style=color:#ae81ff>10</span>, <span style=color:#ae81ff>25</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>colorR</span>.<span style=color:#a6e22e>style</span>(<span style=color:#e6db74>&#39;width&#39;</span>, <span style=color:#e6db74>&#39;280px&#39;</span>);
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>function</span> <span style=color:#a6e22e>draw</span>() {
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>background</span>(<span style=color:#ae81ff>0</span>);
+</span></span><span style=display:flex><span>  <span style=color:#75715e>// clip-space quad (i.e., both x and y vertex coordinates ∈ [-1..1])
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#75715e>// https://p5js.org/reference/#/p5/quad
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#75715e>// It&#39;s worth noting (not mentioned in the api docs) that the quad
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#75715e>// command also adds the texture coordinates to each of its vertices.
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>uvShader</span>.<span style=color:#a6e22e>setUniform</span>(<span style=color:#e6db74>&#39;colorR&#39;</span>, <span style=color:#a6e22e>colorR</span>.<span style=color:#a6e22e>value</span>());
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>quad</span>(<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>, <span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>1</span>, <span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>1</span>, <span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>1</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div></div></details><details><summary>uv.frag</summary><div class=markdown-inner><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-js data-lang=js><span style=display:flex><span><span style=color:#75715e>//-------------------------------------------------------------
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#a6e22e>precision</span> <span style=color:#a6e22e>mediump</span> <span style=color:#66d9ef>float</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// the texture coordinates varying was defined in 
+</span></span></span><span style=display:flex><span><span style=color:#75715e>// the vertex shader by treegl readShader()
+</span></span></span><span style=display:flex><span><span style=color:#75715e>// open your console and &amp; see!
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#a6e22e>varying</span> <span style=color:#a6e22e>vec2</span> <span style=color:#a6e22e>texcoords2</span>;
+</span></span><span style=display:flex><span><span style=color:#a6e22e>uniform</span> <span style=color:#66d9ef>int</span> <span style=color:#a6e22e>v1</span>;
+</span></span><span style=display:flex><span><span style=color:#a6e22e>uniform</span> <span style=color:#66d9ef>int</span> <span style=color:#a6e22e>u_valueX</span>;
+</span></span><span style=display:flex><span><span style=color:#a6e22e>uniform</span> <span style=color:#66d9ef>int</span> <span style=color:#a6e22e>u_valueY</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>void</span> <span style=color:#a6e22e>main</span>() {
+</span></span><span style=display:flex><span>  <span style=color:#75715e>// glsl swizzling is both handy and elegant
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#75715e>// see: https://www.khronos.org/opengl/wiki/Data_Type_(GLSL)#Swizzling
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#a6e22e>gl_FragColor</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>vec4</span>(<span style=color:#a6e22e>texcoords2</span>, <span style=color:#ae81ff>0.5</span>, <span style=color:#ae81ff>1.0</span>);
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span><span style=color:#75715e>//-------------------------------------------
+</span></span></span></code></pre></div></div></details><details><summary>uv.vert</summary><div class=markdown-inner><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-js data-lang=js><span style=display:flex><span><span style=color:#a6e22e>uniform</span> <span style=color:#a6e22e>mat4</span> <span style=color:#a6e22e>uModelViewMatrix</span>;
+</span></span><span style=display:flex><span><span style=color:#a6e22e>uniform</span> <span style=color:#a6e22e>mat4</span> <span style=color:#a6e22e>uProjectionMatrix</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>attribute</span> <span style=color:#a6e22e>vec3</span> <span style=color:#a6e22e>aPosition</span>;    <span style=color:#75715e>// Vertex position
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#a6e22e>attribute</span> <span style=color:#a6e22e>vec2</span> <span style=color:#a6e22e>aTexCoord</span>;    <span style=color:#75715e>// Vertex texture coordinate
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#a6e22e>attribute</span> <span style=color:#a6e22e>vec3</span> <span style=color:#a6e22e>aNormal</span>;      <span style=color:#75715e>// Vertex normal
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#a6e22e>attribute</span> <span style=color:#a6e22e>vec4</span> <span style=color:#a6e22e>aVertexColor</span>; <span style=color:#75715e>// Vertex color
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// =====================================
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>varying</span> <span style=color:#a6e22e>vec3</span> <span style=color:#a6e22e>vPosition</span>;
+</span></span><span style=display:flex><span><span style=color:#a6e22e>varying</span> <span style=color:#a6e22e>vec2</span> <span style=color:#a6e22e>vTexCoord</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>void</span> <span style=color:#a6e22e>main</span>() {
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#75715e>// Store the vertex position for use in the fragment shader
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#a6e22e>vPosition</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>aPosition</span>;
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>vTexCoord</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>aTexCoord</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#75715e>// Set the vertex position without any change besides the view transformations
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#75715e>// Note: it is important to apply these matrices to get your shape to render in the correct location
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#a6e22e>gl_Position</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>uProjectionMatrix</span> <span style=color:#f92672>*</span> <span style=color:#a6e22e>uModelViewMatrix</span> <span style=color:#f92672>*</span> <span style=color:#a6e22e>vec4</span>(<span style=color:#a6e22e>aPosition</span>, <span style=color:#ae81ff>1.0</span>);
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div></div></details><p>Now, here is the demonstrarion of our sketch, notice that both the fragment and vertex shader are embedded into the same file, this was done simply to ease the process of file tracking.</p><p>You can use the first slider to adjust the intensity of the channels depending on the mode chosen.
+If you use the coloring mode, the sliders adjust the individual color channels (Red, Blue and Green), it is recommended to disable the camera using the button, since moving the sliders also moves the camera.</p><p>UV Shader on a random triangle.</p><iframe id=uv-world style=width:500px;height:500px srcdoc="
         <!DOCTYPE html>
         <html>
           <head>
@@ -41,5 +122,139 @@ UV World Test"><meta property="og:type" content="article"><meta property="og:url
           <body>
           </body>
         </html>
-      "></iframe></article><footer class=book-footer><div class="flex flex-wrap justify-between"><div><a class="flex align-center" href=https://github.com/visualcomputing/showcase/commit/47bc10a1b0878fa331edfde3ab2ae55ae69b25d5 title='Last modified by Klalvarezm | June 27, 2022' target=_blank rel=noopener><img src=/showcase/svg/calendar.svg class=book-icon alt=Calendar>
-<span>June 27, 2022</span></a></div></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><div class=book-comments></div><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><a href=#texturing-and-coloring>Texturing and Coloring</a></li></ul></nav></div></aside></main></body></html>
+      "></iframe>
+<details><summary>uvWorld.js</summary><div class=markdown-inner><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-js data-lang=js><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>vert</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>`#ifdef GL_ES
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>precision mediump float;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>#endif
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>// =====================================
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>// Built in p5js uniforms and attributes
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>// =====================================
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>uniform mat4 uModelViewMatrix;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>uniform mat4 uProjectionMatrix;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>attribute vec3 aPosition;    // Vertex position
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>attribute vec2 aTexCoord;    // Vertex texture coordinate
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>attribute vec3 aNormal;      // Vertex normal
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>attribute vec4 aVertexColor; // Vertex color
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>// =====================================
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>varying vec3 vPosition;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>varying vec2 vTexCoord;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>void main() {
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>  // Store the vertex position for use in the fragment shader
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>  vPosition = aPosition;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>  vTexCoord = aTexCoord;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>  // Set the vertex position without any change besides the view transformations
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>  // Note: it is important to apply these matrices to get your shape to render in the correct location
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>  gl_Position = uProjectionMatrix * uModelViewMatrix * vec4(aPosition, 1.0);
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>}`</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>frag</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>`#ifdef GL_ES
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>precision mediump float;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>#endif
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>  
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>// Position in world space
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>varying vec3 vPosition;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>// Position in texture space
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>varying vec2 vTexCoord;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>uniform float colorR,colorA,colorG;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>uniform int option;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>// Ignored
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>uniform sampler2D uSampler;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>void main() {
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>  // Color based on texture coordinate position
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>  vec2 st = vTexCoord.xy;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>  vec4 tex = texture2D(uSampler, vTexCoord);
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>  // Go from red to green on one diagonal and white to black on the other.
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>  if(option == 0){gl_FragColor =vec4(colorR,vTexCoord.xy,1.0);;}
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>  if(option == 1){gl_FragColor =vec4(vTexCoord.xy,colorR,1.0);;}
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>  if(option == 2){gl_FragColor =vec4(colorR,colorG,colorA,1.0);;} // R,G,B,A
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>}`</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>let</span> <span style=color:#a6e22e>valX</span><span style=color:#f92672>=</span><span style=color:#ae81ff>4</span>,<span style=color:#a6e22e>valY</span><span style=color:#f92672>=</span><span style=color:#ae81ff>2</span>,<span style=color:#a6e22e>valZ</span><span style=color:#f92672>=</span><span style=color:#ae81ff>0.1</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>let</span> <span style=color:#a6e22e>camopt</span><span style=color:#f92672>=</span><span style=color:#66d9ef>true</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>let</span> <span style=color:#a6e22e>shdr</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>let</span> <span style=color:#a6e22e>pos1</span><span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>,<span style=color:#a6e22e>pos2</span><span style=color:#f92672>=</span><span style=color:#ae81ff>10</span>,<span style=color:#a6e22e>pos3</span><span style=color:#f92672>=</span><span style=color:#ae81ff>100</span>,<span style=color:#a6e22e>pos4</span><span style=color:#f92672>=</span><span style=color:#ae81ff>10</span>,<span style=color:#a6e22e>pos5</span><span style=color:#f92672>=</span><span style=color:#ae81ff>50</span>,<span style=color:#a6e22e>pos6</span><span style=color:#f92672>=-</span><span style=color:#ae81ff>100</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>function</span> <span style=color:#a6e22e>setup</span>() {
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>button</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>createButton</span>(<span style=color:#e6db74>&#34;Randomize&#34;</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>button</span>.<span style=color:#a6e22e>mousePressed</span>(<span style=color:#a6e22e>changeCoords</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>button</span>.<span style=color:#a6e22e>position</span>(<span style=color:#ae81ff>10</span>,<span style=color:#ae81ff>470</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>button2</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>createButton</span>(<span style=color:#e6db74>&#34;Enable / Disable Cam&#34;</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>button2</span>.<span style=color:#a6e22e>mousePressed</span>(<span style=color:#a6e22e>changeCam</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>button2</span>.<span style=color:#a6e22e>position</span>(<span style=color:#ae81ff>330</span>,<span style=color:#ae81ff>460</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>createCanvas</span>(<span style=color:#ae81ff>470</span>, <span style=color:#ae81ff>470</span>, <span style=color:#a6e22e>WEBGL</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>shdr</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>createShader</span>(<span style=color:#a6e22e>vert</span>, <span style=color:#a6e22e>frag</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>textureMode</span>(<span style=color:#a6e22e>NORMAL</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>noStroke</span>();
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>colorR</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>createSlider</span>(<span style=color:#ae81ff>0</span>,<span style=color:#ae81ff>1</span> , <span style=color:#ae81ff>0.05</span>, <span style=color:#ae81ff>0.01</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>colorR</span>.<span style=color:#a6e22e>position</span>(<span style=color:#ae81ff>10</span>, <span style=color:#ae81ff>25</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>colorR</span>.<span style=color:#a6e22e>style</span>(<span style=color:#e6db74>&#39;width&#39;</span>, <span style=color:#e6db74>&#39;280px&#39;</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>colorA</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>createSlider</span>(<span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>0.05</span>, <span style=color:#ae81ff>0.01</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>colorA</span>.<span style=color:#a6e22e>position</span>(<span style=color:#ae81ff>10</span>, <span style=color:#ae81ff>45</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>colorA</span>.<span style=color:#a6e22e>style</span>(<span style=color:#e6db74>&#39;width&#39;</span>, <span style=color:#e6db74>&#39;280px&#39;</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>colorG</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>createSlider</span>(<span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>0.05</span>, <span style=color:#ae81ff>0.01</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>colorG</span>.<span style=color:#a6e22e>position</span>(<span style=color:#ae81ff>10</span>, <span style=color:#ae81ff>65</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>colorG</span>.<span style=color:#a6e22e>style</span>(<span style=color:#e6db74>&#39;width&#39;</span>, <span style=color:#e6db74>&#39;280px&#39;</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>option</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>createSelect</span>();
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>option</span>.<span style=color:#a6e22e>position</span>(<span style=color:#ae81ff>10</span>, <span style=color:#ae81ff>450</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>option</span>.<span style=color:#a6e22e>option</span>(<span style=color:#e6db74>&#34;Blue/ Red&#34;</span>, <span style=color:#ae81ff>0</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>option</span>.<span style=color:#a6e22e>option</span>(<span style=color:#e6db74>&#34;Green / Blue&#34;</span>, <span style=color:#ae81ff>1</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>option</span>.<span style=color:#a6e22e>option</span>(<span style=color:#e6db74>&#34;Coloring&#34;</span>, <span style=color:#ae81ff>2</span>);
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span><span style=color:#66d9ef>function</span> <span style=color:#a6e22e>changeCam</span>(){
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>camopt</span><span style=color:#f92672>=!</span><span style=color:#a6e22e>camopt</span>;
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>print</span> (<span style=color:#a6e22e>camopt</span>);
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>if</span>(<span style=color:#a6e22e>camopt</span>){
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>valX</span><span style=color:#f92672>=</span><span style=color:#ae81ff>4</span>;<span style=color:#a6e22e>valY</span><span style=color:#f92672>=</span><span style=color:#ae81ff>2</span>;<span style=color:#a6e22e>valZ</span><span style=color:#f92672>=</span><span style=color:#ae81ff>0.1</span>;
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>else</span>{
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>valX</span><span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>;<span style=color:#a6e22e>valY</span><span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>;<span style=color:#a6e22e>valZ</span><span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>;
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span><span style=color:#66d9ef>function</span> <span style=color:#a6e22e>changeCoords</span>(){
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>pos1</span><span style=color:#f92672>=</span><span style=color:#a6e22e>random</span>(<span style=color:#f92672>-</span><span style=color:#ae81ff>250</span>,<span style=color:#ae81ff>250</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>pos2</span><span style=color:#f92672>=</span><span style=color:#a6e22e>random</span>(<span style=color:#f92672>-</span><span style=color:#ae81ff>250</span>,<span style=color:#ae81ff>250</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>pos3</span><span style=color:#f92672>=</span><span style=color:#a6e22e>random</span>(<span style=color:#f92672>-</span><span style=color:#ae81ff>250</span>,<span style=color:#ae81ff>250</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>pos4</span><span style=color:#f92672>=</span><span style=color:#a6e22e>random</span>(<span style=color:#f92672>-</span><span style=color:#ae81ff>250</span>,<span style=color:#ae81ff>250</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>pos5</span><span style=color:#f92672>=</span><span style=color:#a6e22e>random</span>(<span style=color:#f92672>-</span><span style=color:#ae81ff>250</span>,<span style=color:#ae81ff>250</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>pos6</span><span style=color:#f92672>=</span><span style=color:#a6e22e>random</span>(<span style=color:#f92672>-</span><span style=color:#ae81ff>250</span>,<span style=color:#ae81ff>250</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>function</span> <span style=color:#a6e22e>draw</span>() {
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>background</span>(<span style=color:#ae81ff>255</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>shader</span>(<span style=color:#a6e22e>shdr</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>orbitControl</span>(<span style=color:#a6e22e>valX</span>, <span style=color:#a6e22e>valY</span>, <span style=color:#a6e22e>valZ</span>);
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>if</span>(<span style=color:#a6e22e>option</span>.<span style=color:#a6e22e>value</span>()<span style=color:#f92672>==</span><span style=color:#ae81ff>0</span>){
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>styler</span><span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>;
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>shdr</span>.<span style=color:#a6e22e>setUniform</span>(<span style=color:#e6db74>&#39;option&#39;</span>,<span style=color:#a6e22e>styler</span>);
+</span></span><span style=display:flex><span>  }<span style=color:#66d9ef>else</span> <span style=color:#66d9ef>if</span>(<span style=color:#a6e22e>option</span>.<span style=color:#a6e22e>value</span>()<span style=color:#f92672>==</span><span style=color:#ae81ff>1</span>){
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>styler</span><span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>shdr</span>.<span style=color:#a6e22e>setUniform</span>(<span style=color:#e6db74>&#39;option&#39;</span>,<span style=color:#a6e22e>styler</span>);
+</span></span><span style=display:flex><span>  }<span style=color:#66d9ef>else</span> <span style=color:#66d9ef>if</span>(<span style=color:#a6e22e>option</span>.<span style=color:#a6e22e>value</span>()<span style=color:#f92672>==</span><span style=color:#ae81ff>2</span>){
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>styler</span><span style=color:#f92672>=</span><span style=color:#ae81ff>2</span>;
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>shdr</span>.<span style=color:#a6e22e>setUniform</span>(<span style=color:#e6db74>&#39;option&#39;</span>,<span style=color:#a6e22e>styler</span>);
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>shdr</span>.<span style=color:#a6e22e>setUniform</span>(<span style=color:#e6db74>&#39;colorR&#39;</span>, <span style=color:#a6e22e>colorR</span>.<span style=color:#a6e22e>value</span>());
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>shdr</span>.<span style=color:#a6e22e>setUniform</span>(<span style=color:#e6db74>&#39;colorA&#39;</span>, <span style=color:#a6e22e>colorA</span>.<span style=color:#a6e22e>value</span>());
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>shdr</span>.<span style=color:#a6e22e>setUniform</span>(<span style=color:#e6db74>&#39;colorG&#39;</span>, <span style=color:#a6e22e>colorG</span>.<span style=color:#a6e22e>value</span>());
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>beginShape</span>();
+</span></span><span style=display:flex><span>  <span style=color:#75715e>//Triangulo 2d
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#a6e22e>normal</span>(<span style=color:#ae81ff>2</span>, <span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>1</span>);
+</span></span><span style=display:flex><span>  <span style=color:#75715e>//Cara 1  
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#a6e22e>vertex</span>(<span style=color:#a6e22e>pos1</span>, <span style=color:#a6e22e>pos2</span>,<span style=color:#ae81ff>0</span>,<span style=color:#f92672>-</span><span style=color:#ae81ff>0.5</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>vertex</span>(<span style=color:#a6e22e>pos3</span>, <span style=color:#a6e22e>pos4</span>,<span style=color:#ae81ff>0</span>,<span style=color:#ae81ff>3.5</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>vertex</span>(<span style=color:#a6e22e>pos5</span>, <span style=color:#a6e22e>pos6</span>,<span style=color:#ae81ff>0</span>,<span style=color:#ae81ff>0</span>);  
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>endShape</span>();
+</span></span><span style=display:flex><span>  
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div></div></details><h2 id=conclusions-and-future-work>Conclusions and Future Work
+<a class=anchor href=#conclusions-and-future-work>#</a></h2><p>We were able to apply a texture to a &ldquo;custom&rdquo; shape by using both a vertex and frament shader, and sending the relevant information (texture coordinates), sadly we were unable to apply the shader using the three channels at the same time, since we were limited by applying color using the coordinates, for future work, so we wish to improve the shader mapping to include the three channels, having a better efecto, also, it would be interesting to apply different shaders and images using this methos.</p><h2 id=references>References
+<a class=anchor href=#references>#</a></h2><ul><li><a href=https://conceptartempire.com/uv-mapping-unwrapping/>https://conceptartempire.com/uv-mapping-unwrapping/</a></li><li><a href=https://riptutorial.com/opengl/example/32426/using-textures-in-glsl-shaders>https://riptutorial.com/opengl/example/32426/using-textures-in-glsl-shaders</a></li><li><a href=https://docs.unity3d.com/es/2019.4/Manual/Shaders.html>https://docs.unity3d.com/es/2019.4/Manual/Shaders.html</a></li><li><a href=https://discourse.processing.org/t/beginshape-and-custom-shaders/35021>https://discourse.processing.org/t/beginshape-and-custom-shaders/35021</a> (This one was specially useful)</li></ul></article><footer class=book-footer><div class="flex flex-wrap justify-between"><div><a class="flex align-center" href=https://github.com/visualcomputing/showcase/commit/399afee0eca31c8e4693c93448dd774f9c442edd title='Last modified by Klalvarezm | June 28, 2022' target=_blank rel=noopener><img src=/showcase/svg/calendar.svg class=book-icon alt=Calendar>
+<span>June 28, 2022</span></a></div></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><div class=book-comments></div><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><a href=#texturing-and-coloring>Texturing and Coloring</a><ul><li><a href=#background>Background</a><ul><li><a href=#uv-mapping>UV Mapping</a></li></ul></li><li><a href=#results>Results</a></li><li><a href=#conclusions-and-future-work>Conclusions and Future Work</a></li><li><a href=#references>References</a></li></ul></li></ul></nav></div></aside></main></body></html>
