@@ -125,7 +125,8 @@ function draw() {
   //Cara 1  
   vertex(pos1, pos2,0,-0.5);
   vertex(pos3, pos4,0,3.5);
-  vertex(pos5, pos6,0,0);  
+  vertex(pos5, pos6,0,0);
+  vertex(pos1-100, pos2-100,0,0);    
   endShape();
   
 }
