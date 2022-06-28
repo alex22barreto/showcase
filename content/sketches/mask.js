@@ -38,7 +38,7 @@ function setup() {
   option = createSelect();
   option.position(520, 10);
   option.option("None", 0);
-  option.option("Blue", 1);
+  option.option("Blur", 1);
   option.option("Ridge", 2);
   option.option("Bottom Sobel", 3);
   option.option("Emboss", 4);
