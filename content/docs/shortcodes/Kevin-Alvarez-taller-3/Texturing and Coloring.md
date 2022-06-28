@@ -128,7 +128,7 @@ Now, here is the demonstrarion of our sketch, notice that both the fragment and 
 You can use the first slider to adjust the intensity of the channels depending on the mode chosen.
 If you use the coloring mode, the sliders adjust the individual color channels (Red, Blue and Green), it is recommended to disable the camera using the button, since moving the sliders also moves the camera.
 
-UV Shader on a random triangle.
+UV Shader on a random 4 - vertex figure.
 
 {{< p5-iframe sketch="/showcase/sketches/uv-world.js"  lib1="https://cdn.jsdelivr.net/gh/VisualComputing/p5.treegl/p5.treegl.js" lib2="https://cdn.jsdelivr.net/gh/freshfork/p5.EasyCam@1.2.1/p5.easycam.js" width="500" height="500" >}}
 
