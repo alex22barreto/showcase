@@ -606,12 +606,6 @@ else
 
 
 
-
-
-
-
-
-
 ## Conclusiones y trabajo futuro
 
 ### CONCLUSIONES:
