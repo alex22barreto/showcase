@@ -621,7 +621,7 @@ else
 
 - El procesamiento de imágenes realizado por software y secuencialmente toma demasiado tiempo de procesamiento, pero con el uso de shaders, el tiempo ya no es un problema, la diferencia entre los tiempos de renderizacion de la implementacion del taller 1 a lo realizado en este punto es muy grande, en la primera entrega era necesario diligenciar los valores de la matriz y luego si lanzar la convolucion pero tardaba demasiado, en este punto se pueden realizar los cambios en linea y los resultados se ven de inmediato, visualizando las implementaciones en equipos de las mismas condiciones.
 
-TRABAJO FUTURO:
+### TRABAJO FUTURO:
 
 - Como trabajo futuro, se espera poder aplicar un mayor número de filtros a una misma imagen, individualmente y combinados, ya que la combinación de diferentes kernels puede dar mejores resultados. Según la aplicación, es posible que desee aplicar un filtro que elimine las imperfecciones o suavice una imagen y luego aplicar otro que detecte los bordes.
 

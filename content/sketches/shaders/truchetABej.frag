@@ -1,4 +1,4 @@
-// Author @patriciogv - 2015 - patricio.io
+// Codigo tomado y modificado de https://thebookofshaders.com/09/
 
 #ifdef GL_ES
 precision mediump float;
