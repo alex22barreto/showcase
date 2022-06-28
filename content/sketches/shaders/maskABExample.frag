@@ -129,19 +129,19 @@ if(pct<radio){
   if(grey_scale){    
     convolution += vec4(vec3(luma(texel.rgb)), 1.0);
   }
-  if(igrey_scale){
+  else if(igrey_scale){
     convolution += vec4(vec3(Irgb(texel.rgb)), 1.0);
   }
-  if(vgrey_scale){
+  else if(vgrey_scale){
     convolution += vec4(vec3(Vhsv(texel.rgb)), 1.0);
   }
-  if(lgrey_scale){
+  else if(lgrey_scale){
     convolution += vec4(vec3(Lhsl(texel.rgb)), 1.0);
   }
-  if(hsvgrey_scale){
+  else if(hsvgrey_scale){
     convolution += vec4(rgb2hsv(texel.rgb), 1.0);
   }
-  if(mascara){
+  else if(mascara){
     for (int i = 0; i < 9; i++) {
       convolution += rgba[i]*mask[i];
     }
