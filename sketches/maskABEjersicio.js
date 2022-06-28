@@ -27,8 +27,8 @@ function preload() {
   video_src.hide(); // by default video shows up in separate dom
   maskShader = readShader('/showcase/sketches/shaders/maskABExample.frag', { varyings: Tree.texcoords2 });
   
-  //img = loadImage('/showcase/sketches/arboles.jpg');
-  img = loadImage('/showcase/sketches/fire_breathing.png');
+  img = loadImage('/showcase/sketches/arboles.jpg');
+  //img = loadImage('/showcase/sketches/fire_breathing.png');
   
 }
 
