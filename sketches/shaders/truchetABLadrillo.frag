@@ -1,4 +1,4 @@
-
+// Codigo tomado y modificado de https://thebookofshaders.com/09/
 
 #ifdef GL_ES
 precision mediump float;
@@ -27,17 +27,9 @@ void main(void){
     vec2 st = gl_FragCoord.xy/u_resolution.xy;
     vec3 color = vec3(0.0);
 
-    // Modern metric brick of 215mm x 102.5mm x 65mm
-    // http://www.jaharrison.me.uk/Brickwork/Sizes.html
-    // st /= vec2(2.15,0.65)/1.5;
-
-    // Apply the brick tiling
     st = brickTile(st,5.0);
 
     color = vec3(box(st,vec2(0.9)));
-
-    // Uncomment to see the space coordinates
-    // color = vec3(st,0.0);
-
+    
     gl_FragColor = vec4(color,1.0);
 }
