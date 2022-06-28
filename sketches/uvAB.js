@@ -49,24 +49,19 @@ function draw() {
   vertex(-1/3, -1/3);
   endShape();*/
 
-  /*beginShape(TESS);
-  //normal(2, 1, 1);
+  beginShape(TESS);
+  normal(2, 1, 1);
   vertex(-1, 0, 0,1, 0);
   vertex(-1/3, 1/3,0,1/3, 1/3);
   vertex(0, 1, 0,0, 1);
-  vertex(1/3, 1/3, 0);
-  vertex(1, 0, 0 );
-  vertex(1/3, -1/3, 0);
-  vertex(0, -1, 0);
-  vertex(-1/3, -1/3, 0);
-  endShape();*/
+  endShape();
 
-  beginShape(TESS);
+  /*beginShape(TESS);
   normal(2, 1, 1);
   vertex(0,0,0,0);
   vertex(0,1,0,1);
   vertex(1,1,1,1);
   vertex(1,0,1,0);
-  
-  endShape();
+  endShape();*/
+
 }
